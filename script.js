@@ -87,10 +87,11 @@ function loadQuestionTemplate(element) {
 	page.question.timer.setAttribute("id", "timer");
 	page.questionArea.appendChild(page.question.timer);
 
-	tStart = window.performance.now() / 1000;
+	tStart = Math.round(window.performance.now() / 1000);
 	t0 = tStart;
-	t = window.performance.now() / 1000;
+	t = Math.round(window.performance.now() / 1000);
 	var dt = t-t0;
+	console.log(dt);
 	var tLeft = timeLimits[element] - dt;
 	var min = ("0" + String(Math.floor(tLeft/60))).substr(-2);
 	var sec = ("0" + String(tLeft % 60)).substr(-2);
