@@ -2,11 +2,35 @@
 // CONSTANTS
 //----------------------------------------------------------------
 
+var timeLimits = { //In seconds
+	CountBy3s: 120,
+	Multiplication: 120,
+	Division: 120,
+	Divisibility: 120,
+	Factoring: 120,
+	PrimeFactorization: 120,
+	LeastCommonMultiple: 120,
+	GreatestCommonFactor: 120,
+	AddingAndSubtractingIntegers: 120,
+	MultiplyingAndDividingIntegers: 120,
+	TheNumberGame: 120,
+	EquivalentFractions: 120,
+	ReducingFractions: 120,
+	ProperAndImproperFractionsAndMixedNumbers: 120,
+	AddingAndSubtractingFractions: 120,
+	MultiplyingAndDividingFractions: 120,
+	PositiveAndNegativeExponents: 120,
+	ScientificNotation: 120
+};
+
 //----------------------------------------------------------------
 // GLOBAL VARIABLES
 //----------------------------------------------------------------
 
 var page = {};
+var tStart;
+var t0;
+var t;
 
 //----------------------------------------------------------------
 // CLASSES
@@ -20,6 +44,7 @@ function setup() {
 	console.log("FUNCTION CALL: setup()");
 
 	page.navigation = {};
+	page.question = {};
 
 	page.navigation.CountBy3s = document.getElementById("CountBy3s");
 	page.navigation.Multiplication = document.getElementById("Multiplication");
@@ -43,16 +68,94 @@ function setup() {
 
 	for(var element in page.navigation) {
 		page.navigation[element].addEventListener("click", function() {
-			loadQuestionTemplate(element);
+			loadQuestionTemplate(this.getAttribute("id"));
 		});
 	}
 }
 function loadQuestionTemplate(element) {
 	console.log("FUNCTION CALL: loadQuestionTemplate("+element+")");
 
-	
+	while(page.questionArea.firstChild) {
+		page.questionArea.removeChild(page.questionArea.firstChild);
+	}
+	page.question = {};
+
+	page.question.titleElement = document.createElement("h2");
+	page.question.titleElement.appendChild(document.createTextNode(page.navigation[element].innerHTML));
+	page.questionArea.appendChild(page.question.titleElement);
+	page.question.timer = document.createElement("div");
+	page.question.timer.setAttribute("id", "timer");
+	page.questionArea.appendChild(page.question.timer);
+
+	tStart = window.performance.now() / 1000;
+	t0 = tStart;
+	t = window.performance.now() / 1000;
+	var dt = t-t0;
+	var tLeft = timeLimits[element] - dt;
+	var min = ("0" + String(Math.floor(tLeft/60))).substr(-2);
+	var sec = ("0" + String(tLeft % 60)).substr(-2);
+	page.question.timer.appendChild(document.createTextNode(min + ":" + sec));
+
+	switch(element) {
+		case "CountBy3s":
+			//
+			break;
+		case "Multiplication":
+			//
+			break;
+		case "Division":
+			//
+			break;
+		case "Divisibility":
+			//
+			break;
+		case "Factoring":
+			//
+			break;
+		case "PrimeFactorization":
+			//
+			break;
+		case "LeastCommonMultiple":
+			//
+			break;
+		case "GreatestCommonFactor":
+			//
+			break;
+		case "AddingAndSubtractingIntegers":
+			//
+			break;
+		case "MultiplyingAndDividingIntegers":
+			//
+			break;
+		case "TheNumberGame":
+			//
+			break;
+		case "EquivalentFractions":
+			//
+			break;
+		case "ReducingFractions":
+			//
+			break;
+		case "ProperAndImproperFractionsAndMixedNumbers":
+			//
+			break;
+		case "AddingAndSubtractingFractions":
+			//
+			break;
+		case "MultiplyingAndDividingFractions":
+			//
+			break;
+		case "PositiveAndNegativeExponents":
+			//
+			break;
+		case "ScientificNotation":
+			//
+			break;
+	}
 }
 
 //----------------------------------------------------------------
 // EXECUTED CODE
 //----------------------------------------------------------------
+
+setup();
