@@ -36,6 +36,79 @@ var t;
 // CLASSES
 //----------------------------------------------------------------
 
+funciton CountBy3s() {
+	//
+	//
+}
+funciton Multiplication() {
+	//
+	//
+}
+funciton Division() {
+	//
+	//
+}
+funciton Divisibility() {
+	//
+	//
+}
+funciton Factoring() {
+	//
+	//
+}
+funciton PrimeFactorization() {
+	//
+	//
+}
+funciton LeastCommonMultiple() {
+	//
+	//
+}
+funciton GreatestCommonFactor() {
+	//
+	//
+}
+funciton AddingAndSubtractingIntegers() {
+	//
+	//
+}
+funciton MultiplyingAndDividingIntegers() {
+	//
+	//
+}
+funciton TheNumberGame() {
+	//
+	//
+}
+funciton EquivalentFractions() {
+	//
+	//
+}
+funciton ReducingFractions() {
+	//
+	//
+}
+funciton ProperAndImproperFractionsAndMixedNumbers() {
+	//
+	//
+}
+funciton AddingAndSubtractingFractions() {
+	//
+	//
+}
+funciton MultiplyingAndDividingFractions() {
+	//
+	//
+}
+funciton PositiveAndNegativeExponents() {
+	//
+	//
+}
+funciton ScientificNotation() {
+	//
+	//
+}
+
 //----------------------------------------------------------------
 // FUNCTIONS
 //----------------------------------------------------------------
@@ -80,10 +153,10 @@ function loadQuestionTemplate(element) {
 	}
 	page.question = {};
 
-	page.question.titleElement = document.createElement("h2");
+	page.question.titleElement = document.createElement("h1");
 	page.question.titleElement.appendChild(document.createTextNode(page.navigation[element].innerHTML));
 	page.questionArea.appendChild(page.question.titleElement);
-	page.question.timer = document.createElement("div");
+	page.question.timer = document.createElement("h2");
 	page.question.timer.setAttribute("id", "timer");
 	page.questionArea.appendChild(page.question.timer);
 
