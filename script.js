@@ -31,14 +31,54 @@ var page = {};
 var tStart;
 var t0;
 var t;
+var currentQuestionByCategory = {
+	CountBy3s: 0,
+	Multiplication: 0,
+	Division: 0,
+	Divisibility: 0,
+	Factoring: 0,
+	PrimeFactorization: 0,
+	LeastCommonMultiple: 0,
+	GreatestCommonFactor: 0,
+	AddingAndSubtractingIntegers: 0,
+	MultiplyingAndDividingIntegers: 0,
+	TheNumberGame: 0,
+	EquivalentFractions: 0,
+	ReducingFractions: 0,
+	ProperAndImproperFractionsAndMixedNumbers: 0,
+	AddingAndSubtractingFractions: 0,
+	MultiplyingAndDividingFractions: 0,
+	PositiveAndNegativeExponents: 0,
+	ScientificNotation: 0
+};
+var currentQuestionCategory = "";
+var questions = {};
+var numCounting3sQuestions = 30;
+var firstQuestionLoaded = false;
 
 //----------------------------------------------------------------
 // CLASSES
 //----------------------------------------------------------------
 
-function CountBy3s() {
-	//
-	//
+function CountBy3s(id) {
+	this.id = id;
+	this.expected3 = (1+id)*3;
+	this.load = function(pageObj) {
+		var previous3s = document.createElement("p");
+		var listOf3s = [];
+		for(var i=3; i<this.expected3; i+=3) {
+			listOf3s.push(i);
+		}
+		previous3s.appendChild(document.createTextNode(String(listOf3s)));
+		var current3 = document.createElement("textarea");
+		pageObj.question.previous3s = previous3s;
+		pageObj.questionArea.appendChild(previous3s);
+		pageObj.question.current3 = current3;
+		pageObj.questionArea.appendChild(current3);
+	}
+	this.checkAns = function(pageObj) {
+		return Number(pageObj.question.current3.value) == this.expected3
+	}
 }
 function Multiplication() {
 	//
@@ -139,10 +179,24 @@ function setup() {
 	page.navigation.ScientificNotation = document.getElementById("ScientificNotation");
 	page.questionArea = document.getElementById("questionArea");
 
+	document.addEventListener("keydown", function(e) { submittedAnswer(e); });
+
+	createQuestions();
+
 	for(var element in page.navigation) {
 		page.navigation[element].addEventListener("click", function() {
+			firstQuestionLoaded = true;
+			currentQuestionCategory = this.getAttribute("id");
 			loadQuestionTemplate(this.getAttribute("id"));
 		});
+	}
+}
+function createQuestions() {
+	console.log("FUNCTION CALL: createQuestions()");
+
+	questions.CountBy3s = [];
+	for(var i=0; i<numCounting3sQuestions; ++i) {
+		questions.CountBy3s.push(new CountBy3s(i));
 	}
 }
 function loadQuestionTemplate(element) {
@@ -172,7 +226,7 @@ function loadQuestionTemplate(element) {
 
 	switch(element) {
 		case "CountBy3s":
-			//
+			questions.CountBy3s[currentQuestionByCategory.CountBy3s].load(page);
 			break;
 		case "Multiplication":
 			//
@@ -225,6 +279,14 @@ function loadQuestionTemplate(element) {
 		case "ScientificNotation":
 			//
 			break;
+	}
+}
+function submittedAnswer(event) {
+	if(event.which == 13 && firstQuestionLoaded) {
+		var correct = questions[currentQuestionCategory][currentQuestionByCategory[currentQuestionCategory]].checkAns(page);
+		if(correct) {
+			
+		}
 	}
 }
 
