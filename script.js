@@ -36,75 +36,75 @@ var t;
 // CLASSES
 //----------------------------------------------------------------
 
-funciton CountBy3s() {
+function CountBy3s() {
 	//
 	//
 }
-funciton Multiplication() {
+function Multiplication() {
 	//
 	//
 }
-funciton Division() {
+function Division() {
 	//
 	//
 }
-funciton Divisibility() {
+function Divisibility() {
 	//
 	//
 }
-funciton Factoring() {
+function Factoring() {
 	//
 	//
 }
-funciton PrimeFactorization() {
+function PrimeFactorization() {
 	//
 	//
 }
-funciton LeastCommonMultiple() {
+function LeastCommonMultiple() {
 	//
 	//
 }
-funciton GreatestCommonFactor() {
+function GreatestCommonFactor() {
 	//
 	//
 }
-funciton AddingAndSubtractingIntegers() {
+function AddingAndSubtractingIntegers() {
 	//
 	//
 }
-funciton MultiplyingAndDividingIntegers() {
+function MultiplyingAndDividingIntegers() {
 	//
 	//
 }
-funciton TheNumberGame() {
+function TheNumberGame() {
 	//
 	//
 }
-funciton EquivalentFractions() {
+function EquivalentFractions() {
 	//
 	//
 }
-funciton ReducingFractions() {
+function ReducingFractions() {
 	//
 	//
 }
-funciton ProperAndImproperFractionsAndMixedNumbers() {
+function ProperAndImproperFractionsAndMixedNumbers() {
 	//
 	//
 }
-funciton AddingAndSubtractingFractions() {
+function AddingAndSubtractingFractions() {
 	//
 	//
 }
-funciton MultiplyingAndDividingFractions() {
+function MultiplyingAndDividingFractions() {
 	//
 	//
 }
-funciton PositiveAndNegativeExponents() {
+function PositiveAndNegativeExponents() {
 	//
 	//
 }
-funciton ScientificNotation() {
+function ScientificNotation() {
 	//
 	//
 }
