@@ -9,7 +9,7 @@ div.category {
 }
 div.section {
 	display: block;
-	padding: 0px;
+	padding: 0px 10px;
 	height: 0px;
 	visibility: hidden;
 }
