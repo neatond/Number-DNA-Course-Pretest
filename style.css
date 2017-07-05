@@ -18,3 +18,17 @@ div.categoryLabel {
 	padding: 10px;
 	background-color: #42c5f4;
 }
+div.categoryContents {
+	/*visibility: hidden;*/
+}
+
+div#sidebar {
+	max-width: 25%;
+}
+div#mainCont {
+	max-width: 75%;
+	vertical-align: top;
+}
+div#homeCONT {
+	visibility: visible;
+}
