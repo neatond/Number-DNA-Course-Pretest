@@ -24,7 +24,8 @@ function category(id) {
 			this.sections.push(tempSectionsNodeList[i]);
 		}
 	}
-	for(var i=0; i<this.sections.length; ++i) {
+	this.header = document.getElementById(this.sections[0].getAttribute("id"));
+	for(var i=1; i<this.sections.length; ++i) {
 		this.sections[i] = new section(this.sections[i].getAttribute("id"),
 			document.getElementById(this.sections[i].getAttribute("id")));
 	}
@@ -56,11 +57,17 @@ function category(id) {
 	}
 
 	this.visible = false;
-	this.element.addEventListener("click", this.toggle);
+	this.header.addEventListener("click", this.toggle);
 }
 function section(id, element) {
 	this.id = id;
 	this.element = element;
+
+	this.load = function() {
+		//TODO
+	}
+
+	this.element.addEventListener("click", this.load);
 }
 
 //////////////////////////////////////////////////
