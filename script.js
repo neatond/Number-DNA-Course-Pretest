@@ -25,23 +25,24 @@ function category(id) {
 		}
 	}
 	for(var i=0; i<this.sections.length; ++i) {
-		this.sections[i] = document.getElementById(this.sections[i].getAttribute("id"));
+		this.sections[i] = new section(this.sections[i].getAttribute("id"),
+			document.getElementById(this.sections[i].getAttribute("id")));
 	}
 
 	this.hide = function() {
 		this.visible = false;
 		for(var i=1; i<this.sections.length; ++i) {
-			this.sections[i].style.visibility = "hidden";
-			this.sections[i].style.height = "0px";
-			this.sections[i].style.padding = "0px 10px";
+			this.sections[i].element.style.visibility = "hidden";
+			this.sections[i].element.style.height = "0px";
+			this.sections[i].element.style.padding = "0px 10px";
 		}
 	}
 	this.unhide = function() {
 		this.visible = true;
 		for(var i=1; i<this.sections.length; ++i) {
-			this.sections[i].style.visibility = "visible";
-			this.sections[i].style.height = "auto";
-			this.sections[i].style.padding = "10px 10px";
+			this.sections[i].element.style.visibility = "visible";
+			this.sections[i].element.style.height = "auto";
+			this.sections[i].element.style.padding = "10px 10px";
 		}
 	}
 	this.toggle = function() {
@@ -56,6 +57,10 @@ function category(id) {
 
 	this.visible = false;
 	this.element.addEventListener("click", this.toggle);
+}
+function section(id, element) {
+	this.id = id;
+	this.element = element;
 }
 
 //////////////////////////////////////////////////
