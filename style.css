@@ -1,0 +1,20 @@
+div {
+	display: inline-block;
+}
+
+div.category {
+	background-color: #4ad8e8;
+	display: block;
+	margin: 2px;
+}
+div.section {
+	display: block;
+	padding: 0px;
+	height: 0px;
+	visibility: hidden;
+}
+div.categoryLabel {
+	display: block;
+	padding: 10px;
+	background-color: #42c5f4;
+}
