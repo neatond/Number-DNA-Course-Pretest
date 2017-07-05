@@ -2,7 +2,7 @@
 /// CONSTANTS
 //////////////////////////////////////////////////
 
-
+var numCategories = 6; //The number of categories in the navigation bar sidebar, not including "home".
 
 //////////////////////////////////////////////////
 /// GLOBAL VARIABLES
@@ -63,7 +63,9 @@ function category(id) {
 //////////////////////////////////////////////////
 
 function setup() {
-	categories[0] = new category("part1");
+	for(var i=0; i<numCategories; ++i) {
+		categories.push(new category("part" + String(i+1)));
+	}
 }
 
 //////////////////////////////////////////////////
