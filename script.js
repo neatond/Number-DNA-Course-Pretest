@@ -9,6 +9,10 @@ var numCategories = 6; //The number of categories in the navigation bar sidebar,
 //////////////////////////////////////////////////
 
 var categories = []; //A list of the navigation sidebar's categories.
+var currentLoadedSection = "home"; //The sections are home, countBy3s, multiply, divide, divisibility, factoring,
+                                   //primeFactorization, lcm, gcf, intAddSubtract, intMultiplyDivide, theNumberGame,
+                                   //equivalentFractions, reducingFractions, improperAndMixedFractions, fracAddSubtract,
+                                   //fracMultiplyDivide, exponents, toScientificNotation, fromScientificNotation
 
 //////////////////////////////////////////////////
 /// CLASSES
@@ -72,7 +76,9 @@ function section(id, element) {
 			}
 			document.getElementById(allSections[i].getAttribute("id")).style.display = "none";
 		}
-		document.getElementById(this.getAttribute("id") + "CONT").style.display = "inline-block";
+		var id = this.getAttribute("id");
+		document.getElementById(id + "CONT").style.display = "inline-block";
+		currentLoadedSection = id;
 	}
 
 	this.element.addEventListener("click", this.load);
