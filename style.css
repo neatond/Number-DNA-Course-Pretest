@@ -1,6 +1,12 @@
 div {
 	display: inline-block;
 }
+textarea {
+	height: 18px;
+	width: 40px;
+	vertical-align: middle;
+	resize: horizontal;
+}
 
 div.category {
 	background-color: #4ad8e8;
@@ -19,14 +25,19 @@ div.categoryLabel {
 	background-color: #42c5f4;
 }
 div.categoryContents {
-	/*visibility: hidden;*/
+	display: none;
+}
+div.questionCategoryEnterAnswer {
+	padding: 5px;
+	background-color: #aaffaa;
 }
 
 div#sidebar {
 	max-width: 25%;
 }
 div#mainCont {
-	max-width: 75%;
+	margin-left: 5%;
+	max-width: 65%;
 	vertical-align: top;
 }
 div#homeCONT {
