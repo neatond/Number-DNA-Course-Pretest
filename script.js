@@ -62,9 +62,17 @@ function category(id) {
 function section(id, element) {
 	this.id = id;
 	this.element = element;
+	this.contents = document.getElementById(id + "CONT")
 
 	this.load = function() {
-		//TODO
+		var allSections = document.getElementById("mainCont").childNodes;
+		for(var i=0; i<allSections.length; ++i) {
+			if(allSections[i].nodeType == 3) {
+				continue;
+			}
+			document.getElementById(allSections[i].getAttribute("id")).style.display = "none";
+		}
+		document.getElementById(this.getAttribute("id") + "CONT").style.display = "inline-block";
 	}
 
 	this.element.addEventListener("click", this.load);
