@@ -112,7 +112,7 @@ var questions = {
 		[34, 51]
 	],
 	intAddSubtract: [
-		
+
 	],
 	intMultiplyDivide: [
 
@@ -145,13 +145,133 @@ var questions = {
 
 	[]
 };
+var correctAnswers = {
+	countBy3s: [
+		//
+	],
+	multiply: [
+		[6],
+		[15],
+		[20]
+	],
+	divide: [
+		//
+	],
+	divisibility: [
+		//
+	],
+	factoring: [
+		//
+	],
+	primeFactorization: [
+		//
+	],
+	lcm: [
+		//
+	],
+	gcf: [
+		//
+	],
+	intAddSubtract: [
+		//
+	],
+	intMultiplyDivide: [
+		//
+	],
+	theNumberGame: [
+		//
+	],
+	equivalentFractions: [
+		//
+	],
+	reducingFractions: [
+		//
+	],
+	improperAndMixedFractions: [
+		//
+	],
+	fracAddSubtract: [
+		//
+	],
+	fracMultiplyDivide: [
+		//
+	],
+	exponents: [
+		//
+	],
+	toScientificNotation: [
+		//
+	],
+	fromScientificNotatio: [
+		//
+	]
+}
+var userAnswers = {
+	countBy3s: [
+		//
+	],
+	multiply: [
+		//
+	],
+	divide: [
+		//
+	],
+	divisibility: [
+		//
+	],
+	factoring: [
+		//
+	],
+	primeFactorization: [
+		//
+	],
+	lcm: [
+		//
+	],
+	gcf: [
+		//
+	],
+	intAddSubtract: [
+		//
+	],
+	intMultiplyDivide: [
+		//
+	],
+	theNumberGame: [
+		//
+	],
+	equivalentFractions: [
+		//
+	],
+	reducingFractions: [
+		//
+	],
+	improperAndMixedFractions: [
+		//
+	],
+	fracAddSubtract: [
+		//
+	],
+	fracMultiplyDivide: [
+		//
+	],
+	exponents: [
+		//
+	],
+	toScientificNotation: [
+		//
+	],
+	fromScientificNotatio: [
+		//
+	]
+}
 
 //////////////////////////////////////////////////
 /// GLOBAL VARIABLES
 //////////////////////////////////////////////////
 
 var categories = []; //A list of the navigation sidebar's categories.
-var sections = []; //A list of the different sections.
+var sections = {}; //An object containing the different sections.
 var currentLoadedSection = "home"; //The sections are home, countBy3s, multiply, divide, divisibility, factoring,
                                    //primeFactorization, lcm, gcf, intAddSubtract, intMultiplyDivide, theNumberGame,
                                    //equivalentFractions, reducingFractions, improperAndMixedFractions, fracAddSubtract,
@@ -209,6 +329,7 @@ function category(id) {
 function section(id, element) {
 	this.id = id;
 	this.element = element;
+	this.currentQuestion = 0;
 	this.contents = document.getElementById(id + "CONT")
 
 	this.load = function() {
@@ -222,11 +343,29 @@ function section(id, element) {
 		var id = this.getAttribute("id");
 		document.getElementById(id + "CONT").style.display = "inline-block";
 		currentLoadedSection = id;
+		sections[currentLoadedSection].start();
+	}
+	this.loadQuestion = function(num) {
+		for(var i=0; i<questions[this.id][num].length; ++i) {
+			document.getElementById(this.id + "Question" + String(i + 1)).innerHTML = questions[this.id][num][i];
+		}
+	}
+	this.start = function() {
+		this.loadQuestion(this.currentQuestion);
+	}
+	this.getAnswers = function() {
+		var ans = [];
+		for(var i=0; i<correctAnswers[this.id][this.currentQuestion].length; ++i) {
+			console.log(this.id + "Answer" + String(i+1));
+			console.log(document.getElementById(this.id + "Answer" + String(i + 1)).value);
+			ans.push(document.getElementById(this.id + "Answer" + String(i + 1)).value);
+		}
+		userAnswers[this.id].push(ans);
 	}
 
 	this.element.addEventListener("click", this.load);
 
-	sections.push(this);
+	sections[this.id] = this;
 }
 
 //////////////////////////////////////////////////
@@ -236,6 +375,14 @@ function section(id, element) {
 function setup() {
 	for(var i=0; i<numCategories; ++i) {
 		categories.push(new category("part" + String(i+1)));
+	}
+	var submitButtons = document.getElementsByClassName("questionCategoryEnterAnswer");
+	for(var i=0; i<submitButtons.length; ++i) {
+		submitButtons[i].addEventListener("click", function() {
+			sections[currentLoadedSection].getAnswers();
+			sections[currentLoadedSection].loadQuestion(sections[currentLoadedSection].currentQuestion+1);
+			++sections[currentLoadedSection].currentQuestion;
+		});
 	}
 }
 
