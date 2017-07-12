@@ -9,6 +9,7 @@ var numCategories = 6; //The number of categories in the navigation bar sidebar,
 //////////////////////////////////////////////////
 
 var categories = []; //A list of the navigation sidebar's categories.
+var sections = []; //A list of the different sections.
 var currentLoadedSection = "home"; //The sections are home, countBy3s, multiply, divide, divisibility, factoring,
                                    //primeFactorization, lcm, gcf, intAddSubtract, intMultiplyDivide, theNumberGame,
                                    //equivalentFractions, reducingFractions, improperAndMixedFractions, fracAddSubtract,
@@ -82,6 +83,8 @@ function section(id, element) {
 	}
 
 	this.element.addEventListener("click", this.load);
+
+	sections.push(this);
 }
 
 //////////////////////////////////////////////////
