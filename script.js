@@ -491,6 +491,27 @@ var userAnswers = {
 		//
 	]
 }
+var timeLimits = { //Given in minutes
+	countBy3s: 5,
+	multiply: 5,
+	divide: 5,
+	divisibility: 5,
+	factoring: 5,
+	primeFactorization: 5,
+	lcm: 5,
+	gcf: 5,
+	intAddSubtract: 5,
+	intMultiplyDivide: 5,
+	theNumberGame: 5,
+	equivalentFractions: 5,
+	reducingFractions: 5,
+	improperAndMixedFractions: 5,
+	fracAddSubtract: 5,
+	fracMultiplyDivide: 5,
+	exponents: 5,
+	toScientificNotation: 5,
+	fromScientificNotation: 5
+}
 
 //////////////////////////////////////////////////
 /// GLOBAL VARIABLES
@@ -502,6 +523,7 @@ var currentLoadedSection = "home"; //The sections are home, countBy3s, multiply,
                                    //primeFactorization, lcm, gcf, intAddSubtract, intMultiplyDivide, theNumberGame,
                                    //equivalentFractions, reducingFractions, improperAndMixedFractions, fracAddSubtract,
                                    //fracMultiplyDivide, exponents, toScientificNotation, fromScientificNotation
+var scetionInProgress = false; //Whether or not a section of the test is currently being taken.
 
 //////////////////////////////////////////////////
 /// CLASSES
@@ -580,6 +602,7 @@ function section(id, element) {
 		}
 	}
 	this.start = function() {
+		scetionInProgress = true;
 		this.loadQuestion(this.currentQuestion);
 	}
 	this.getAnswers = function() {
