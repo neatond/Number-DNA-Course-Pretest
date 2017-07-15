@@ -525,6 +525,7 @@ var currentLoadedSection = "home"; //The sections are home, countBy3s, multiply,
                                    //fracMultiplyDivide, exponents, toScientificNotation, fromScientificNotation
 var scetionInProgress = false; //Whether or not a section of the test is currently being taken.
 var currentSectionStartTime; //The start time of the current section.
+var stopTimer = false; //Force the timer to stop.
 
 //////////////////////////////////////////////////
 /// CLASSES
@@ -595,11 +596,19 @@ function section(id, element) {
 		sections[currentLoadedSection].start();
 	}
 	this.loadQuestion = function(num) {
+		if(num >= questions[this.id].length) {
+			stopTimer = true;
+			this.getScore();
+			return;
+		}
 		for(var i=0; i<questions[this.id][num].length; ++i) {
 			document.getElementById(this.id + "Question" + String(i + 1)).innerHTML = questions[this.id][num][i];
 		}
 		for(var i=0; i<correctAnswers[this.id][num].length; ++i) {
 			document.getElementById(this.id + "Answer" + String(i + 1)).value = "";
+		}
+		if(this.id = "countBy3s") {
+			document.getElementById(this.id + "Answer" + String(1)).value = "3";
 		}
 	}
 	this.start = function() {
@@ -610,12 +619,38 @@ function section(id, element) {
 	}
 	this.getAnswers = function() {
 		var ans = [];
-		for(var i=0; i<correctAnswers[this.id][this.currentQuestion].length; ++i) {
-			console.log(this.id + "Answer" + String(i+1));
-			console.log(document.getElementById(this.id + "Answer" + String(i + 1)).value);
-			ans.push(document.getElementById(this.id + "Answer" + String(i + 1)).value);
+		if(this.id == "countBy3s") {
+			for(var i=0; i<correctAnswers[this.id].length; ++i) {
+				console.log(this.id + "Answer" + String(i+1));
+				console.log(document.getElementById(this.id + "Answer" + String(i + 1)).value);
+				ans.push(document.getElementById(this.id + "Answer" + String(i + 1)).value);
+			}
+		}
+		else {
+			for(var i=0; i<correctAnswers[this.id][this.currentQuestion].length; ++i) {
+				console.log(this.id + "Answer" + String(i+1));
+				console.log(document.getElementById(this.id + "Answer" + String(i + 1)).value);
+				ans.push(document.getElementById(this.id + "Answer" + String(i + 1)).value);
+			}
 		}
 		userAnswers[this.id].push(ans);
+	}
+	this.getScore = function() {
+		this.getAnswers();
+		for(var i=userAnswers[this.id].length; i<correctAnswers.length; ++i) {
+			userAnswers.push([]);
+		}
+		if(this.id == "countBy3s") {
+			var correct = 0;
+			var total = 0;
+			for(var i=0; i<correctAnswers[this.id].length; ++i) {
+				++total;
+				if(userAnswers[this.id][0][i] == correctAnswers[this.id][i]) {
+					++correct;
+				}
+			}
+			alert("In the section " + this.id + ", you got " + correct + "/" + total + ".");
+		}
 	}
 
 	this.element.addEventListener("click", this.load);
@@ -641,12 +676,19 @@ function setup() {
 	}
 }
 function updateTimer() {
+	if(stopTimer) {
+		stopTimer = false;
+		return;
+	}
 	var currentTime = window.performance.now();
 	var elapsed = currentTime - currentSectionStartTime;
 	var maxTime = timeLimits[currentLoadedSection];
 	var timeLeft = (maxTime * 60 * 1000) - elapsed;
+
+	var done = false;
 	if(timeLeft < 0) {
 		timeLeft = 0;
+		done = true;
 	}
 
 	var minutes = String(Math.floor(timeLeft / (1000 * 60))); while(minutes.length < 2) { minutes = "0" + minutes; } timeLeft -= minutes * 1000 * 60;
@@ -657,7 +699,12 @@ function updateTimer() {
 	document.getElementById("seconds").innerHTML = seconds;
 	document.getElementById("milliseconds").innerHTML = millis;
 
-	requestAnimationFrame(updateTimer);
+	if(!done) {
+		requestAnimationFrame(updateTimer);
+	}
+	else {
+		sections[currentLoadedSection].getScore();
+	}
 }
 
 //////////////////////////////////////////////////
