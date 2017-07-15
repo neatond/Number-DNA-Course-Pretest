@@ -607,7 +607,7 @@ function section(id, element) {
 		for(var i=0; i<correctAnswers[this.id][num].length; ++i) {
 			document.getElementById(this.id + "Answer" + String(i + 1)).value = "";
 		}
-		if(this.id = "countBy3s") {
+		if(this.id == "countBy3s") {
 			document.getElementById(this.id + "Answer" + String(1)).value = "3";
 		}
 	}
@@ -640,17 +640,32 @@ function section(id, element) {
 		for(var i=userAnswers[this.id].length; i<correctAnswers.length; ++i) {
 			userAnswers.push([]);
 		}
+		var correct = 0;
+		var total = 0;
 		if(this.id == "countBy3s") {
-			var correct = 0;
-			var total = 0;
 			for(var i=0; i<correctAnswers[this.id].length; ++i) {
 				++total;
 				if(userAnswers[this.id][0][i] == correctAnswers[this.id][i]) {
 					++correct;
 				}
 			}
-			alert("In the section " + this.id + ", you got " + correct + "/" + total + ".");
 		}
+		else {
+			for(var i=0; i<correctAnswers[this.id].length; ++i) {
+				++total;
+				var allCorrect = true;
+				for(var j=0; j<correctAnswers[this.id][i].length; ++j) {
+					if(userAnswers[this.id][i][j] != correctAnswers[this.id][i][j]) {
+						allCorrect = false;
+						break;
+					}
+				}
+				if(allCorrect) {
+					++correct;
+				}
+			}
+		}
+		alert("In the section " + this.id + ", you got " + correct + "/" + total + ".");
 	}
 
 	this.element.addEventListener("click", this.load);
