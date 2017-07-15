@@ -395,11 +395,11 @@ var correctAnswers = {
 		[36, 36, 1, 4],  [25, 25, 3, 5], [2, 2, 2, 1]
 	],
 	improperAndMixedFractions: [
-		[4, 2, 3],  [0, 7, 2],  [4, 1, 2],
-		[0, 13, 3], [7, 0, 2],  [0, -18, 5],
-		[-1, 5, 7], [0, 59, 8], [11, 1, 2],
-		[0, 64, 7], [2, 1, 5],  [0, -65, 7],
-		[0, -45 7], [-7, 6, 7], [0, -51, 7]
+		[4, 2, 3],   [0, 7, 2],  [4, 1, 2],
+		[0, 13, 3],  [7, 0, 2],  [0, -18, 5],
+		[-1, 5, 7],  [0, 59, 8], [11, 1, 2],
+		[0, 64, 7],  [2, 1, 5],  [0, -65, 7],
+		[0, -45, 7], [-7, 6, 7], [0, -51, 7]
 	],
 	fracAddSubtract: [
 		[0, 7, 11],  [0, 7, 8],
@@ -524,6 +524,7 @@ var currentLoadedSection = "home"; //The sections are home, countBy3s, multiply,
                                    //equivalentFractions, reducingFractions, improperAndMixedFractions, fracAddSubtract,
                                    //fracMultiplyDivide, exponents, toScientificNotation, fromScientificNotation
 var scetionInProgress = false; //Whether or not a section of the test is currently being taken.
+var currentSectionStartTime; //The start time of the current section.
 
 //////////////////////////////////////////////////
 /// CLASSES
@@ -603,7 +604,9 @@ function section(id, element) {
 	}
 	this.start = function() {
 		scetionInProgress = true;
+		currentSectionStartTime = window.performance.now();
 		this.loadQuestion(this.currentQuestion);
+		requestAnimationFrame(updateTimer);
 	}
 	this.getAnswers = function() {
 		var ans = [];
@@ -636,6 +639,25 @@ function setup() {
 			++sections[currentLoadedSection].currentQuestion;
 		});
 	}
+}
+function updateTimer() {
+	var currentTime = window.performance.now();
+	var elapsed = currentTime - currentSectionStartTime;
+	var maxTime = timeLimits[currentLoadedSection];
+	var timeLeft = (maxTime * 60 * 1000) - elapsed;
+	if(timeLeft < 0) {
+		timeLeft = 0;
+	}
+
+	var minutes = String(Math.floor(timeLeft / (1000 * 60))); while(minutes.length < 2) { minutes = "0" + minutes; } timeLeft -= minutes * 1000 * 60;
+	var seconds = String(Math.floor(timeLeft / (1000)));      while(seconds.length < 2) { seconds = "0" + seconds; } timeLeft -= seconds * 1000;
+	var millis  = String(Math.floor(timeLeft / (1)));         while(millis.length < 3) {millis = "0" + millis; }     timeLeft -= millis * 1;
+
+	document.getElementById("minutes").innerHTML = minutes;
+	document.getElementById("seconds").innerHTML = seconds;
+	document.getElementById("milliseconds").innerHTML = millis;
+
+	requestAnimationFrame(updateTimer);
 }
 
 //////////////////////////////////////////////////

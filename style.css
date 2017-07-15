@@ -37,9 +37,13 @@ div#sidebar {
 }
 div#mainCont {
 	margin-left: 5%;
-	max-width: 65%;
+	max-width: 55%;
 	vertical-align: top;
 }
 div#homeCONT {
 	visibility: visible;
+}
+div#timerCont {
+	max-width: 10%;
+	vertical-align: top;
 }
