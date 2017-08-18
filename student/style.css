@@ -1,0 +1,18 @@
+div {
+	display: inline-block;
+}
+
+div#testSelectionCont {
+	display: none;
+}
+div#testExplanationCont {
+	display: none;
+}
+div#testCont {
+	display: none;
+}
+
+div.testSelectionAreaOption {
+	text-align: center;
+	padding: 0px 10px;
+}

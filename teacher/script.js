@@ -25,7 +25,6 @@ function clickedACheckbox(e) {
 	document.getElementById("part" + currentPart + "Checkbox").checked = true;
 }
 function setup() {
-
 	username = prompt("What is your name?");
 	while(!validUsername(username)) {
 		username = prompt("I'm sorry, but that's not a valid name. Try again!");
