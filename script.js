@@ -708,11 +708,9 @@ function updateTimer() {
 
 	var minutes = String(Math.floor(timeLeft / (1000 * 60))); while(minutes.length < 2) { minutes = "0" + minutes; } timeLeft -= minutes * 1000 * 60;
 	var seconds = String(Math.floor(timeLeft / (1000)));      while(seconds.length < 2) { seconds = "0" + seconds; } timeLeft -= seconds * 1000;
-	var millis  = String(Math.floor(timeLeft / (1)));         while(millis.length < 3) {millis = "0" + millis; }     timeLeft -= millis * 1;
 
 	document.getElementById("minutes").innerHTML = minutes;
 	document.getElementById("seconds").innerHTML = seconds;
-	document.getElementById("milliseconds").innerHTML = millis;
 
 	if(!done) {
 		requestAnimationFrame(updateTimer);
