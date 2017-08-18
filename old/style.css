@@ -1,0 +1,49 @@
+div {
+	display: inline-block;
+}
+textarea {
+	height: 18px;
+	width: 40px;
+	vertical-align: middle;
+	resize: horizontal;
+}
+
+div.category {
+	background-color: #4ad8e8;
+	display: block;
+	margin: 2px;
+}
+div.section {
+	display: block;
+	padding: 0px 10px;
+	height: 0px;
+	visibility: hidden;
+}
+div.categoryLabel {
+	display: block;
+	padding: 10px;
+	background-color: #42c5f4;
+}
+div.categoryContents {
+	display: none;
+}
+div.questionCategoryEnterAnswer {
+	padding: 5px;
+	background-color: #aaffaa;
+}
+
+div#sidebar {
+	max-width: 25%;
+}
+div#mainCont {
+	margin-left: 5%;
+	max-width: 55%;
+	vertical-align: top;
+}
+div#homeCONT {
+	visibility: visible;
+}
+div#timerCont {
+	max-width: 10%;
+	vertical-align: top;
+}
