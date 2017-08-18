@@ -12,13 +12,34 @@ function validUsername(name) {
 		return true;
 	}
 }
-
+function clickedACheckbox(e) {
+	var id = e.target.id;
+	var partNum = Number(id.slice(-1));
+	if(currentPart != 0) {
+		document.getElementById("testSelectionCheckbox" + String(currentPart)).checked = false;
+	}
+	else {
+		var continueButton = document.getElementById("testSelectionContinueButton");
+		continueButton.style.display = "inline-block";
+		continueButton.addEventListener("click", loadTestInstructions);
+	}
+	currentPart = partNum;
+	document.getElementById("part" + currentPart + "Checkbox").checked = true;
+}
+function loadTestInstructions() {
+	//
+}
 function setup() {
 	username = prompt("What is your name?");
 	while(!validUsername(username)) {
 		username = prompt("I'm sorry, but that's not a valid name. Try again!");
 	}
 	document.getElementById("testSelectionCont").style.display = "inline-block";
+	for(var i=1; i<=4; ++i) {
+		document.getElementById("testSelectionCheckbox" + String(i)).addEventListener("click", function(event) {
+			clickedACheckbox(event);
+		});
+	}
 }
 
 setup();

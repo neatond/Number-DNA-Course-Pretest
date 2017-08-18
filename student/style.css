@@ -5,6 +5,11 @@ div {
 div#testSelectionCont {
 	display: none;
 }
+div#testSelectionContinueButton {
+	display: none;
+	padding: 5px;
+	background-color: yellow;
+}
 div#testExplanationCont {
 	display: none;
 }
