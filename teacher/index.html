@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Teacher Portal</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+<div id="mainContent">
+	<p>Welcome <span id="teacherName">[insert teacher name]</span>! The numberDNA pretest consists of 22 mini-tests organized into the 4 parts listed below. You are able to select one part at a time. However you may do test parts back to back if you so choose. As you plan your class time we recommend allocating an additional 10 minutes for directions and pauses that occur between each mini test.</p>
+	<p>Each of your student’s responses will populate a spreadsheet that you can review. Also, a summary will be generated for each student that shows areas of strength and weakness. From this personalized summary an action plan is generated with specific next steps for remediating weak concept areas.</p>
+	<p>Which Part would you like to administer today? (Check one box.)</p>
+	<br>
+	<div id="partsCont">
+		<div id="part1Cont" class="partCont">
+			<input type="checkbox" id="part1Checkbox"> Part 1<br>
+			Time: 20 minutes<br>
+			<ul>
+				<li>Multiplication</li>
+				<li>Division</li>
+				<li>Divisibility</li>
+				<li>Factors</li>
+				<li>Prime Factors</li>
+				<li>LCM</li>
+				<li>GCF</li>
+			</ul>
+		</div>
+		<div id="part2Cont" class="partCont">
+			<input type="checkbox" id="part2Checkbox"> Part 2<br>
+			Time: 20 minutes<br>
+			<ul>
+				<li>+/- Integers</li>
+				<li>x/&divide; Integers</li>
+				<li>Number Game</li>
+				<li>Order of Operations</li>
+				<li>Equivalent Fractions</li>
+				<li>Reducing Fractions</li>
+				<li>Improper/Mixed Fractions</li>
+			</ul>
+		</div>
+		<div id="part3Cont" class="partCont">
+			<input type="checkbox" id="part3Checkbox"> Part 3<br>
+			Time: 24 minutes<br>
+			<ul>
+				<li>Solve Equations</li>
+				<li>+/- Fractions</li>
+				<li>x/&divide; Fractions</li>
+			</ul>
+		</div>
+		<div id="part4Cont" class="partCont">
+			<input type="checkbox" id="part4Checkbox"> Part 4<br>
+			Time: 20 minutes<br>
+			<ul>
+				<li>Exponents +/-</li>
+				<li>Scientific Notation</li>
+				<li>Decimals</li>
+				<li>Percents</li>
+				<li>Percent Problems</li>
+			</ul>
+		</div>
+	</div>
+	<br>
+	<div id="selectedPart">
+		<p>Good! Now direct your students to go to <a href="../student/index.html" target="_blank">this link</a> and sign in.</p>
+		<p>Next tell your student to check the test to be administered today.</p>
+		<p>Ask your students to read the following directions and then click start.</p>
+	</div>
+</div>
+
+<script type="text/javascript" src="./script.js"></script>
+</body>
+</html>

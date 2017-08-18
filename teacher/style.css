@@ -1,0 +1,14 @@
+div {
+	display: inline-block;
+}
+
+div#mainContent {
+	display: none;
+}
+div#selectedPart {
+	display: none;
+}
+div.partCont {
+	vertical-align: top;
+	width: 200px;
+}
