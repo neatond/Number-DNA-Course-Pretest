@@ -687,6 +687,7 @@ function setup() {
 			sections[currentLoadedSection].getAnswers();
 			sections[currentLoadedSection].loadQuestion(sections[currentLoadedSection].currentQuestion+1);
 			++sections[currentLoadedSection].currentQuestion;
+			document.getElementById(sections[currentLoadedSection].id + "Answer1").focus();
 		});
 	}
 }
