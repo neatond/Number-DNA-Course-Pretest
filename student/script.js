@@ -24,10 +24,12 @@ function clickedACheckbox(e) {
 		continueButton.addEventListener("click", loadTestInstructions);
 	}
 	currentPart = partNum;
-	document.getElementById("part" + currentPart + "Checkbox").checked = true;
+	document.getElementById("testSelectionCheckbox" + currentPart).checked = true;
 }
 function loadTestInstructions() {
-	//
+	document.getElementById("testSelectionCont").style.display = "none";
+	document.getElementById("testExplanationCont").style.display = "inline-block";
+	document.getElementById("part" + String(currentPart) + "Explanation").style.display = "inline-block";
 }
 function setup() {
 	username = prompt("What is your name?");
@@ -36,9 +38,7 @@ function setup() {
 	}
 	document.getElementById("testSelectionCont").style.display = "inline-block";
 	for(var i=1; i<=4; ++i) {
-		document.getElementById("testSelectionCheckbox" + String(i)).addEventListener("click", function(event) {
-			clickedACheckbox(event);
-		});
+		document.getElementById("testSelectionCheckbox" + String(i)).addEventListener("click", function(event) { clickedACheckbox(event); });
 	}
 }
 

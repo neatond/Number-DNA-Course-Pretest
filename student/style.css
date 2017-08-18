@@ -10,6 +10,10 @@ div#testSelectionContinueButton {
 	padding: 5px;
 	background-color: yellow;
 }
+div#startWholeTest1 {
+	padding: 5px;
+	background-color: yellow;
+}
 div#testExplanationCont {
 	display: none;
 }
@@ -20,4 +24,7 @@ div#testCont {
 div.testSelectionAreaOption {
 	text-align: center;
 	padding: 0px 10px;
+}
+div.partExplanation {
+	display: none;1
 }
