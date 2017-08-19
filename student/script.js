@@ -477,14 +477,16 @@ var currentMiniTestStartTime; //The start time of the current mini test.
 var stopTimer = false; //Force the timer to stop.
 var username;
 var currentPart = 0;
-var currentLoadedMiniTest = ""; //The sections are multiplyWholeNumbers, divideWholeNumbers, divisibility, factorWholeNumbers,
-                                   //primeFactorization, leastCommonMultiple, greatestCommonFactor, intAddSubtract, intMultiplyDivide, theNumberGame,
-                                   //equivalentFractions, reducingFractions, improperAndMixedFractions, fracAddSubtract,
-                                   //fracMultiplyDivide, exponents, toScientificNotation, fromScientificNotation
-var miniTestList = ["multiplyWholeNumbers", "divideWholeNumbers", "divisibility", "factorWholeNumbers", "primeFactorization",
-"leastCommonMultiple", "greatestCommonFactor", "intAddSubtract", "intMultiplyDivide", "theNumberGame",
-"equivalentFractions", "reducingFractions", "improperAndMixedFractions", "fracAddSubtract",
-"fracMultiplyDivide", "exponents", "toScientificNotation", "fromScientificNotation"];
+var currentLoadedMiniTest = ""; //multiplyWholeNumbers, divideWholeNumbers, divisibility, factorWholeNumbers, primeFactorization, leastCommonMultiple,
+                                //greatestCommonFactor, addSubtractInegers, multiplyDivideIntegers, theNumberGame, orderOfOperations, equivalentFractions,
+                                //reducingFractions, improperAndMixedFractions, solveEquations, addSubtractFractions, multiplyDivideFractions,
+                                //exponents, scientificNotation, decimals, percents, percentProblems
+var miniTestList = [
+	["multiplyWholeNumbers", "divideWholeNumbers", "divisibility", "factorWholeNumbers", "primeFactorization", "leastCommonMultiple", "greatestCommonFactor"],
+	["addSubtractInegers", "multiplyDivideIntegers", "theNumberGame", "orderOfOperations", "equivalentFractions", "reducingFractions", "improperAndMixedFractions"],
+	["solveEquations", "addSubtractFractions", "multiplyDivideFractions"],
+	["exponents", "scientificNotation", "decimals", "percents", "percentProblems"]
+];
 
 //////////////////////////////////////////////////
 /// FUNCTIONS
