@@ -26,10 +26,19 @@ function clickedACheckbox(e) {
 	currentPart = partNum;
 	document.getElementById("testSelectionCheckbox" + currentPart).checked = true;
 }
+function loadTest() {
+	document.getElementById("testExplanationCont").style.display = "none";
+	document.getElementById("part" + String(currentPart) + "Explanation").style.display = "none";
+
+	document.getElementById("testCont").style.display = "inline-block";
+	document.getElementById("test" + String(currentPart)).style.display = "inline-block";
+}
 function loadTestInstructions() {
 	document.getElementById("testSelectionCont").style.display = "none";
+
 	document.getElementById("testExplanationCont").style.display = "inline-block";
 	document.getElementById("part" + String(currentPart) + "Explanation").style.display = "inline-block";
+	document.getElementById("startWholeTest" + currentPart).addEventListener("click", loadTest);
 }
 function setup() {
 	username = prompt("What is your name?");
