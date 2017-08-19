@@ -39,4 +39,4 @@ function setup() {
 	}
 }
 
-setup();
+window.setTimeout(setup, 0);
