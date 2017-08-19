@@ -26,5 +26,8 @@ div.testSelectionAreaOption {
 	padding: 0px 10px;
 }
 div.partExplanation {
-	display: none;1
+	display: none;
+}
+div.testArea {
+	display: none;
 }
