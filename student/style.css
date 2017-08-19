@@ -1,6 +1,12 @@
 div {
 	display: inline-block;
 }
+textarea {
+	height: 18px;
+	width: 40px;
+	vertical-align: middle;
+	resize: horizontal;
+}
 
 div#testSelectionCont {
 	display: none;
@@ -29,5 +35,8 @@ div.partExplanation {
 	display: none;
 }
 div.testArea {
+	display: none;
+}
+span.questionHiddenUntilStart {
 	display: none;
 }
