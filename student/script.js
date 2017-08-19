@@ -101,7 +101,7 @@ var questions = {
 		[24, 144],
 		[34, 51]
 	],
-	intAddSubtract: [
+	addSubtractInegers: [
 		[-3, "+", -1],      [-4, "-", 0],       [-2, "+", 1],
 		[-5, "+", 5],       [3, "+", "(-5)"],   [3, "-", 5],
 		[4, "-", "(-4)"],   [-3, "+", 5],       [-2, "-", "(-7)"],
@@ -117,7 +117,7 @@ var questions = {
 		[-22, "-", "(-5)"], [-90, "+", -20],    [17, "+", -11],
 		[-57, "-", 33],     [-81, "+", 11],     [22, "-", "(-11)"]
 	],
-	intMultiplyDivide: [
+	multiplyDivideIntegers: [
 		[-20, "&divide;", 10],     [-1, "&bull;", "(-1)"],    [-16, "&divide;", "(-8)"],
 		[-16, "&divide;", 8],      [8, "&bull;", "(-5)"],     [3, "&bull;", "(-1)"],
 		[-20, "&divide;", "(-5)"], [-30, "&divide;", -3],     [14, "&divide;", "(-7)"],
@@ -144,6 +144,9 @@ var questions = {
 		[-45, -4],
 		[-81, 0],
 		[72, -17]
+	],
+	orderOfOperations: [
+		//
 	],
 	equivalentFractions: [
 		[1, 2],
@@ -173,14 +176,17 @@ var questions = {
 		[9, 1, 7],    ["", 11, 5],  [-9, 2, 7],
 		[-6, 3, 7],   ["-", 55, 7], [-7, 2, 7]
 	],
-	fracAddSubtract: [
+	solveEquations: [
+		//
+	],
+	addSubtractFractions: [
 		["", 5, 11, "+", "", 2, 11],  ["", 3, 8, "+", "", 1, 2],
 		["", 11, 12, "-", "", 7, 12], ["", 16, 25, "+", "", 4, 15],
 		["", 5, 6, "-", "", 7, 20],   ["", 11, 18, "+", "", 5, 12],
 		["", 6, 11, "-", "", 17, 33], [5, "", "", "-", 2, 1, 5],
 		[-1, 4, 5, "-", 2, 1, 2],     [-2, 4, 9, "+", 1, 1, 6]
 	],
-	fracMultiplyDivide: [
+	multiplyDivideFractions: [
 		["", 2, 3, "&bull;", "", 1, 5],     ["", 3, 5, "&divide;", "", 1, 3],
 		["", 7, 8, "&bull;", "", 4, 7],     ["", 10, 11, "&divide;", "", 3, 44],
 		["", 9, 14, "&divide;", "", 18, 7], ["", 16, 25, "&bull;", "", 5, 8],
@@ -194,6 +200,9 @@ var questions = {
 		["(-5)", 3],  [-5, -3], [3, 4],
 		["(-1)", 2],  [10, -3], [10, 3]
 	],
+	scientificNotation: [
+		//
+	],
 	toScientificNotation: [
 		[0.00003], [0.0047],
 		[2000000], [345.2],
@@ -202,6 +211,15 @@ var questions = {
 	fromScientificNotation: [
 		[5, -6], [2.5, -6],
 		[8.03, 5], [1.4, 1]
+	],
+	decimals: [
+		//
+	],
+	percents: [
+		//
+	],
+	percentProblems: [
+		//
 	]
 };
 var correctAnswers = {
@@ -293,7 +311,7 @@ var correctAnswers = {
 		[75], [1],
 		[24], [17]
 	],
-	intAddSubtract: [
+	addSubtractInegers: [
 		[-4],  [-4],   [-1],
 		[0],   [-2],   [-2],
 		[8],   [2],    [5],
@@ -309,7 +327,7 @@ var correctAnswers = {
 		[-17], [-110], [6],
 		[-90], [-70],  [33]
 	],
-	intMultiplyDivide: [
+	multiplyDivideIntegers: [
 		[-2],  [1],    [2],
 		[-2],  [-40],  [-3],
 		[4],   [10],   [-2],
@@ -337,6 +355,9 @@ var correctAnswers = {
 		[-9, 9],
 		[-9, -8]
 	],
+	orderOfOperations: [
+		//
+	],
 	equivalentFractions: [
 		[2, 4, 4, 8, 6, 12],       [4, 14, 8, 28, 10, 35],
 		[8, 22, 20, 55, 32, 88],   [3, 9, 7, 21, 11, 33],
@@ -360,14 +381,17 @@ var correctAnswers = {
 		[0, 64, 7],  [2, 1, 5],  [0, -65, 7],
 		[0, -45, 7], [-7, 6, 7], [0, -51, 7]
 	],
-	fracAddSubtract: [
+	solveEquations: [
+		//
+	],
+	addSubtractFractions: [
 		[0, 7, 11],  [0, 7, 8],
 		[0, 1, 3],   [0, 68, 75],
 		[0, 29, 60], [1, 1, 36],
 		[0, 1, 33],  [2, 4, 5],
 		[-4, 3, 10], [-1, 5, 18]
 	],
-	fracMultiplyDivide: [
+	multiplyDivideFractions: [
 		[2, 15], [9, 5],
 		[1, 2],  [40, 3],
 		[1, 4],  [2, 5],
@@ -381,6 +405,9 @@ var correctAnswers = {
 		[-125, 1], [-1, 125], [81, 1],
 		[1, 1],    [1, 1000], [1000, 1]
 	],
+	scientificNotation: [
+		//
+	],
 	toScientificNotation: [
 		[3, -5],    [4.7, -3],
 		[2, 6],     [3.452, 2],
@@ -389,6 +416,15 @@ var correctAnswers = {
 	fromScientificNotation: [
 		[0.000005], [0.0000025],
 		[803000], [14]
+	],
+	decimals: [
+		//
+	],
+	percents: [
+		//
+	],
+	percentProblems: [
+		//
 	]
 }
 var userAnswers = {
@@ -413,13 +449,16 @@ var userAnswers = {
 	greatestCommonFactor: [
 		//
 	],
-	intAddSubtract: [
+	addSubtractInegers: [
 		//
 	],
-	intMultiplyDivide: [
+	multiplyDivideIntegers: [
 		//
 	],
 	theNumberGame: [
+		//
+	],
+	orderOfOperations: [
 		//
 	],
 	equivalentFractions: [
@@ -431,19 +470,34 @@ var userAnswers = {
 	improperAndMixedFractions: [
 		//
 	],
-	fracAddSubtract: [
+	solveEquations: [
 		//
 	],
-	fracMultiplyDivide: [
+	addSubtractFractions: [
+		//
+	],
+	multiplyDivideFractions: [
 		//
 	],
 	exponents: [
+		//
+	],
+	scientificNotation: [
 		//
 	],
 	toScientificNotation: [
 		//
 	],
 	fromScientificNotation: [
+		//
+	],
+	decimals: [
+		//
+	],
+	percents: [
+		//
+	],
+	percentProblems: [
 		//
 	]
 }
@@ -455,17 +509,23 @@ var timeLimits = { //Given in minutes
 	primeFactorization: 3,
 	leastCommonMultiple: 3,
 	greatestCommonFactor: 3,
-	intAddSubtract: 5,
-	intMultiplyDivide: 5,
-	theNumberGame: 5,
-	equivalentFractions: 5,
-	reducingFractions: 5,
-	improperAndMixedFractions: 5,
-	fracAddSubtract: 5,
-	fracMultiplyDivide: 5,
-	exponents: 5,
+	addSubtractInegers: 3,
+	multiplyDivideIntegers: 3,
+	theNumberGame: 3,
+	orderOfOperations: 3,
+	equivalentFractions: 3,
+	reducingFractions: 3,
+	improperAndMixedFractions: 2,
+	solveEquations: 8,
+	addSubtractFractions: 8,
+	multiplyDivideFractions: 8,
+	exponents: 3,
+	scientificNotation: 4,
 	toScientificNotation: 5,
-	fromScientificNotation: 5
+	fromScientificNotation: 5,
+	decimals: 5,
+	percents: 4,
+	percentProblems: 4
 }
 
 //////////////////////////////////////////////////
@@ -477,6 +537,7 @@ var currentMiniTestStartTime; //The start time of the current mini test.
 var stopTimer = false; //Force the timer to stop.
 var username;
 var currentPart = 0;
+var currentMiniTestIndex;
 var currentLoadedMiniTest = ""; //multiplyWholeNumbers, divideWholeNumbers, divisibility, factorWholeNumbers, primeFactorization, leastCommonMultiple,
                                 //greatestCommonFactor, addSubtractInegers, multiplyDivideIntegers, theNumberGame, orderOfOperations, equivalentFractions,
                                 //reducingFractions, improperAndMixedFractions, solveEquations, addSubtractFractions, multiplyDivideFractions,
