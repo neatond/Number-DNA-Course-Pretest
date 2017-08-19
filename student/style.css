@@ -44,3 +44,6 @@ div.questionCategoryStartButton {
 	padding: 5px;
 	background-color: yellow;
 }
+div.miniTest {
+	display: none;
+}
