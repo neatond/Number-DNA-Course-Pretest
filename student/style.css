@@ -37,9 +37,9 @@ div.partExplanation {
 div.testArea {
 	display: none;
 }
-/*span.questionHiddenUntilStart {
+span.questionHiddenUntilStart {
 	display: none;
-}*/
+}
 div.questionCategoryStartButton {
 	padding: 5px;
 	background-color: yellow;
@@ -52,6 +52,6 @@ div.questionCategorySkip {
 	padding: 5px;
 	background-color: #5555ff;
 }
-/*div.miniTest {
+div.miniTest {
 	display: none;
-}*/
+}
