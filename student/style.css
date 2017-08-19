@@ -40,3 +40,7 @@ div.testArea {
 span.questionHiddenUntilStart {
 	display: none;
 }
+div.questionCategoryStartButton {
+	padding: 5px;
+	background-color: yellow;
+}
