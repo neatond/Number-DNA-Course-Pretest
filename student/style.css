@@ -16,10 +16,6 @@ div#testSelectionContinueButton {
 	padding: 5px;
 	background-color: yellow;
 }
-div#startWholeTest1 {
-	padding: 5px;
-	background-color: yellow;
-}
 div#testExplanationCont {
 	display: none;
 }
@@ -37,9 +33,9 @@ div.partExplanation {
 div.testArea {
 	display: none;
 }
-span.questionHiddenUntilStart {
+/*span.questionHiddenUntilStart {
 	display: none;
-}
+}*/
 div.questionCategoryStartButton {
 	padding: 5px;
 	background-color: yellow;
@@ -52,6 +48,10 @@ div.questionCategorySkip {
 	padding: 5px;
 	background-color: #5555ff;
 }
-div.miniTest {
-	display: none;
+div.startWholeTestButton {
+	padding: 5px;
+	background-color: yellow;
 }
+/*div.miniTest {
+	display: none;
+}*/

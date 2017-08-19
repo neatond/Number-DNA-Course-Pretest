@@ -71,7 +71,7 @@
 		<p>There will be a pause between each mini-assessment.</p>
 		<p>Carefully read the directions to each portion before beginning.</p>
 		<p>Answer as many questions at time allows. A timer will appear on the right.</p>
-		<div id="startWholeTest1">Start</div>
+		<div id="startWholeTest1" class="startWholeTestButton">Start</div>
 	</div>
 	<div id="part2Explanation" class="partExplanation">
 		<h2>NumberDNA Pretest &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Part 2: 16 Minutes</h2>
@@ -111,7 +111,7 @@
 		<p>There will be a pause between each mini-assessment.</p>
 		<p>Carefully read the directions to each portion before beginning.</p>
 		<p>Answer as many questions at time allows. A timer will appear on the right.</p>
-		<div id="startWholeTest1">Start</div>
+		<div id="startWholeTest2" class="startWholeTestButton">Start</div>
 	</div>
 	<div id="part3Explanation" class="partExplanation">
 		<h2>NumberDNA Pretest &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Part 3: 24 Minutes</h2>
@@ -136,7 +136,7 @@
 		<p>There will be a pause between each mini-assessment.</p>
 		<p>Carefully read the directions to each portion before beginning.</p>
 		<p>Answer as many questions at time allows. A timer will appear on the right.</p>
-		<div id="startWholeTest1">Start</div>
+		<div id="startWholeTest3" class="startWholeTestButton">Start</div>
 	</div>
 	<div id="part4Explanation" class="partExplanation">
 		<h2>NumberDNA Pretest &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Part 4: 20 Minutes</h2>
@@ -171,7 +171,7 @@
 		<p>There will be a pause between each mini-assessment.</p>
 		<p>Carefully read the directions to each portion before beginning.</p>
 		<p>Answer as many questions at time allows. A timer will appear on the right.</p>
-		<div id="startWholeTest1">Start</div>
+		<div id="startWholeTest4" class="startWholeTestButton">Start</div>
 	</div>
 </div>
 <div id="testCont">
@@ -343,16 +343,120 @@
 		</div>
 	</div>
 	<div id="test2" class="testArea">
-		<!-- -->
-		<!-- -->
+		<div class="miniTest" id="addSubtractIntegers">
+			<h2 class="questionCategoryTitle">Adding and Subtracting Integers</h2>
+			<br>
+			<div class="questionCategoryInstructions">
+				<strong>Directions:</strong> Answer each of the following addition and subtraction problems.<br>
+				Examples: 3 + -7 = -4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -4 - (-3) = -1<br>
+				You have 3 minutes to answer the following questions. One problem will appear at a time. Enter your answer and click submit. You may choose to skip to the next problem by clicking skip. Press start to begin.
+			</div>
+			<br>
+			<br>
+			<div class="questionCategoryStartButton" id="addSubtractIntegersStartButton">Start</div>
+			<br>
+			<span class="questionHiddenUntilStart" id="addSubtractIntegersHideUntilStart">
+				<div class="questionCategoryQuestionArea">
+					<span id="addSubtractIntegersQuestion1">val_1</span>&nbsp;<span id="addSubtractIntegersQuestion2">val_2</span>&nbsp;<span id="addSubtractIntegersQuestion3">val_3</span>&nbsp;=
+				</div>
+				<div class="questionCategoryAnswerArea">
+					<textarea id="addSubtractIntegersAnswer1"></textarea>
+				</div>
+				<br>
+				<div class="questionCategoryEnterAnswer" id="addSubtractIntegersSubmitButton">Submit</div>
+				<div class="questionCategorySkip" id="addSubtractIntegersSkipButton">Skip</div>
+			</span>
+		</div>
+		<div class="miniTest" id="multiplyDivideIntegers">
+			<h2 class="questionCategoryTitle">Multiplying and Dividing Integers</h2>
+			<br>
+			<div class="questionCategoryInstructions">
+				<strong>Directions:</strong> Answer each of the following Integer multiplication and division problems.<br>
+				Examples: -3 &bull; 4 = -12 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -6 &divide; (-3) = 2<br>
+				You have 3 minutes to answer the following questions. One problem will appear at a time. Enter your answer and click submit. You may choose to skip to the next problem by clicking skip. Press start to begin.
+			</div>
+			<br>
+			<br>
+			<div class="questionCategoryStartButton" id="multiplyDivideIntegersStartButton">Start</div>
+			<br>
+			<span class="questionHiddenUntilStart" id="multiplyDivideIntegersHideUntilStart">
+				<div class="questionCategoryQuestionArea">
+					<span id="multiplyDivideIntegersQuestion1">val_1</span>&nbsp;<span id="multiplyDivideIntegersQuestion2">val_2</span>&nbsp;<span id="multiplyDivideIntegersQuestion3">val_3</span>&nbsp;=
+				</div>
+				<div class="questionCategoryAnswerArea">
+					<textarea id="multiplyDivideIntegersAnswer1"></textarea>
+				</div>
+				<br>
+				<div class="questionCategoryEnterAnswer" id="multiplyDivideIntegersSubmitButton">Submit</div>
+				<div class="questionCategorySkip" id="multiplyDivideIntegersSkipButton">Skip</div>
+			</span>
+		</div>
+		<div class="miniTest" id="theNumberGame">
+			<h2 class="questionCategoryTitle">The Number Game</h2>
+			<br>
+			<div class="questionCategoryInstructions">
+				<strong>Directions:</strong> Answer each of the following questions.<br>
+				Example:<br>
+				Find two numbers that multiply to equal <strong>12</strong> and add to equal <strong>8</strong>. ____<br>
+				Enter one number into each box. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Answer:</strong> -5,2<br>
+				You have 3 minutes to answer the following questions. One problem will appear at a time. Enter your answer and click submit. You may choose to skip to the next problem by clicking skip. Press start to begin.
+			</div>
+			<br>
+			<br>
+			<div class="questionCategoryStartButton" id="theNumberGameStartButton">Start</div>
+			<br>
+			<span class="questionHiddenUntilStart" id="theNumberGameHideUntilStart">
+				<div class="questionCategoryQuestionArea">
+					Find two numbers that multiply to equal <span id="theNumberGameQuestion1">val_1</span> and add to equal <span id="theNumberGameQuestion2">val_2</span>.
+				</div>
+				<div class="questionCategoryAnswerArea">
+					<textarea id="theNumberGameAnswer1"></textarea>,&nbsp;<textarea id="theNumberGameAnswer2"></textarea>
+				</div>
+				<br>
+				<div class="questionCategoryEnterAnswer" id="theNumberGameSubmitButton">Submit</div>
+				<div class="questionCategorySkip" id="theNumberGameSkipButton">Skip</div>
+			</span>
+		</div>
+		<div class="miniTest" id="orderOfOperations">
+			<!-- -->
+		</div>
+		<div class="miniTest" id="equivalentFractions">
+			<!-- -->
+		</div>
+		<div class="miniTest" id="reducingFractions">
+			<!-- -->
+		</div>
+		<div class="miniTest" id="improperAndMixedFractions">
+			<!-- -->
+		</div>
 	</div>
 	<div id="test3" class="testArea">
-		<!-- -->
-		<!-- -->
+		<div class="miniTest" id="solveEquations">
+			<!-- -->
+		</div>
+		<div class="miniTest" id="addSubtractFractions">
+			<!-- -->
+		</div>
+		<div class="miniTest" id="multiplyDivideFractions">
+			<!-- -->
+		</div>
 	</div>
 	<div id="test4" class="testArea">
-		<!-- -->
-		<!-- -->
+		<div class="miniTest" id="exponents">
+			<!-- -->
+		</div>
+		<div class="miniTest" id="scientificNotation">
+			<!-- -->
+		</div>
+		<div class="miniTest" id="decimals">
+			<!-- -->
+		</div>
+		<div class="miniTest" id="percents">
+			<!-- -->
+		</div>
+		<div class="miniTest" id="percentProblems">
+			<!-- -->
+		</div>
 	</div>
 </div>
 
