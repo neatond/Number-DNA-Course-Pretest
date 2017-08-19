@@ -32,7 +32,7 @@ function loadTest() {
 
 	document.getElementById("testCont").style.display = "inline-block";
 	document.getElementById("test" + String(currentPart)).style.display = "inline-block";
-	document.getElementById("test" + String(currentPart)).children[0].style.display = "inline-block";
+	//document.getElementById("test" + String(currentPart)).children[0].style.display = "inline-block";
 }
 function loadTestInstructions() {
 	document.getElementById("testSelectionCont").style.display = "none";
