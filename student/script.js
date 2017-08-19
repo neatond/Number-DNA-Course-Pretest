@@ -32,14 +32,16 @@ function loadTestInstructions() {
 	document.getElementById("part" + String(currentPart) + "Explanation").style.display = "inline-block";
 }
 function setup() {
-	username = prompt("What is your name?");
-	while(!validUsername(username)) {
-		username = prompt("I'm sorry, but that's not a valid name. Try again!");
-	}
-	document.getElementById("testSelectionCont").style.display = "inline-block";
-	for(var i=1; i<=4; ++i) {
-		document.getElementById("testSelectionCheckbox" + String(i)).addEventListener("click", function(event) { clickedACheckbox(event); });
-	}
+	window.setTimeout(function() {
+		username = prompt("What is your name?");
+		while(!validUsername(username)) {
+			username = prompt("I'm sorry, but that's not a valid name. Try again!");
+		}
+		document.getElementById("testSelectionCont").style.display = "inline-block";
+		for(var i=1; i<=4; ++i) {
+			document.getElementById("testSelectionCheckbox" + String(i)).addEventListener("click", function(event) { clickedACheckbox(event); });
+		}
+	}, 0);
 }
 
 setup();
