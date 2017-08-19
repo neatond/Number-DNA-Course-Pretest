@@ -37,9 +37,9 @@ div.partExplanation {
 div.testArea {
 	display: none;
 }
-span.questionHiddenUntilStart {
+/*span.questionHiddenUntilStart {
 	display: none;
-}
+}*/
 div.questionCategoryStartButton {
 	padding: 5px;
 	background-color: yellow;
