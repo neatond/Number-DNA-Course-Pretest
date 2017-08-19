@@ -44,6 +44,14 @@ div.questionCategoryStartButton {
 	padding: 5px;
 	background-color: yellow;
 }
+div.questionCategoryEnterAnswer {
+	padding: 5px;
+	background-color: #00ff00;
+}
+div.questionCategorySkip {
+	padding: 5px;
+	background-color: #5555ff;
+}
 /*div.miniTest {
 	display: none;
 }*/
