@@ -568,20 +568,26 @@ function clickedACheckbox(e) {
 	currentPart = partNum;
 	document.getElementById("testSelectionCheckbox" + currentPart).checked = true;
 }
-function loadTest() {
+function startTest() {
+	
+}
+function loadTest(testNum) {
 	document.getElementById("testExplanationCont").style.display = "none";
 	document.getElementById("part" + String(currentPart) + "Explanation").style.display = "none";
 
 	document.getElementById("testCont").style.display = "inline-block";
 	document.getElementById("test" + String(currentPart)).style.display = "inline-block";
 	document.getElementById(miniTestList[currentPart-1][0]).style.display = "inline-block";
+	document.getElementById(miniTestList[currentPart-1][0] + "StartButton").addEventListener("click", startTest);
 }
 function loadTestInstructions() {
 	document.getElementById("testSelectionCont").style.display = "none";
 
 	document.getElementById("testExplanationCont").style.display = "inline-block";
 	document.getElementById("part" + String(currentPart) + "Explanation").style.display = "inline-block";
-	document.getElementById("startWholeTest" + currentPart).addEventListener("click", loadTest);
+	document.getElementById("startWholeTest" + currentPart).addEventListener("click", function() {
+		loadTest(0);
+	});
 }
 function setup() {
 	username = prompt("What is your name?");
