@@ -531,12 +531,12 @@ var currentMiniTestIndex;
 var currentLoadedMiniTest = ""; //multiplyWholeNumbers, divideWholeNumbers, divisibility, factorWholeNumbers, primeFactorization, leastCommonMultiple,
                                 //greatestCommonFactor, addSubtractInegers, multiplyDivideIntegers, theNumberGame, orderOfOperations, equivalentFractions,
                                 //reducingFractions, improperAndMixedFractions, solveEquations, addSubtractFractions, multiplyDivideFractions,
-                                //exponents, scientificNotation, decimals, percents, percentProblems
+                                //exponents, toScientificNotation, fromScientificNotation, decimals, percents, percentProblems
 var miniTestList = [
 	["multiplyWholeNumbers", "divideWholeNumbers", "divisibility", "factorWholeNumbers", "primeFactorization", "leastCommonMultiple", "greatestCommonFactor"],
 	["addSubtractInegers", "multiplyDivideIntegers", "theNumberGame", "orderOfOperations", "equivalentFractions", "reducingFractions", "improperAndMixedFractions"],
 	["solveEquations", "addSubtractFractions", "multiplyDivideFractions"],
-	["exponents", "scientificNotation", "decimals", "percents", "percentProblems"]
+	["exponents", "toScientificNotation", "fromScientificNotation", "decimals", "percents", "percentProblems"]
 ];
 
 //////////////////////////////////////////////////
@@ -574,7 +574,7 @@ function loadTest() {
 
 	document.getElementById("testCont").style.display = "inline-block";
 	document.getElementById("test" + String(currentPart)).style.display = "inline-block";
-	document.getElementById("test" + String(currentPart)).children[0].style.display = "inline-block";
+	document.getElementById(miniTestList[currentPart-1][0]).style.display = "inline-block";
 }
 function loadTestInstructions() {
 	document.getElementById("testSelectionCont").style.display = "none";
