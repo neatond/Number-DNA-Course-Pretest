@@ -200,9 +200,6 @@ var questions = {
 		["(-5)", 3],  [-5, -3], [3, 4],
 		["(-1)", 2],  [10, -3], [10, 3]
 	],
-	scientificNotation: [
-		//
-	],
 	toScientificNotation: [
 		[0.00003], [0.0047],
 		[2000000], [345.2],
@@ -405,9 +402,6 @@ var correctAnswers = {
 		[-125, 1], [-1, 125], [81, 1],
 		[1, 1],    [1, 1000], [1000, 1]
 	],
-	scientificNotation: [
-		//
-	],
 	toScientificNotation: [
 		[3, -5],    [4.7, -3],
 		[2, 6],     [3.452, 2],
@@ -482,9 +476,6 @@ var userAnswers = {
 	exponents: [
 		//
 	],
-	scientificNotation: [
-		//
-	],
 	toScientificNotation: [
 		//
 	],
@@ -520,7 +511,6 @@ var timeLimits = { //Given in minutes
 	addSubtractFractions: 8,
 	multiplyDivideFractions: 8,
 	exponents: 3,
-	scientificNotation: 4,
 	toScientificNotation: 5,
 	fromScientificNotation: 5,
 	decimals: 5,
