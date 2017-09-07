@@ -1,6 +1,9 @@
 div {
 	display: inline-block;
 }
+table {
+	display: inline-block;
+}
 textarea {
 	height: 18px;
 	width: 40px;
@@ -31,11 +34,11 @@ div.partExplanation {
 	display: none;
 }
 div.testArea {
-	display: none;
+	/*display: none;*/
 }
-/*span.questionHiddenUntilStart {
-	display: none;
-}*/
+span.questionHiddenUntilStart {
+	/*display: none;*/
+}
 div.questionCategoryStartButton {
 	padding: 5px;
 	background-color: yellow;
@@ -48,10 +51,21 @@ div.questionCategorySkip {
 	padding: 5px;
 	background-color: #5555ff;
 }
+div.questionCategoryInstructions {
+	vertical-align: middle;
+}
+div.fracEqual {
+	height: 55px;
+	vertical-align: middle;
+}
 div.startWholeTestButton {
 	padding: 5px;
 	background-color: yellow;
 }
-/*div.miniTest {
-	display: none;
-}*/
+div.miniTest {
+	/*display: none;*/
+}
+
+td.numerator {
+	border-bottom: 1px solid black;
+}
