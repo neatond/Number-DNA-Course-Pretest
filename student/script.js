@@ -571,6 +571,7 @@ function clickedACheckbox(e) {
 }
 function endTest() {
 	++currentTest;
+	document.getElementById("timer").style.display = "none";
 	if(currentTest >= miniTestList[currentPart-1].length) {
 		sendAnswers();
 	}
