@@ -522,11 +522,12 @@ var timeLimits = { //Given in minutes
 /// GLOBAL VARIABLES
 //////////////////////////////////////////////////
 
-var scetionInProgress = false; //Whether or not a mini test is currently being taken.
+var sectionInProgress = false; //Whether or not a mini test is currently being taken.
 var currentMiniTestStartTime; //The start time of the current mini test.
 var stopTimer = false; //Force the timer to stop.
 var username;
 var currentPart = 0;
+var currentTest = 0;
 var currentMiniTestIndex;
 var currentLoadedMiniTest = ""; //multiplyWholeNumbers, divideWholeNumbers, divisibility, factorWholeNumbers, primeFactorization, leastCommonMultiple,
                                 //greatestCommonFactor, addSubtractInegers, multiplyDivideIntegers, theNumberGame, orderOfOperations, equivalentFractions,
@@ -568,8 +569,35 @@ function clickedACheckbox(e) {
 	currentPart = partNum;
 	document.getElementById("testSelectionCheckbox" + currentPart).checked = true;
 }
+function endTest() {
+
+}
+function timerLoop() {
+	var currentTime = new Date().getTime();
+	var timeElapsed = currentTime - currentMiniTestStartTime;
+	var timeRemaining = ((timeLimits[currentLoadedMiniTest]*60*1000) - timeElapsed)/1000;
+	timeRemaining = Math.max(timeRemaining, 0);
+	var minutes = Math.floor(timeRemaining / 60);
+	var minutesString = "0" + String(minutes);
+	minutesString = minutesString.slice(-2);
+	var seconds = Math.floor(timeRemaining - (minutes * 60));
+	var secondsString = "0" + String(seconds);
+	secondsString = secondsString.slice(-2);
+	document.getElementById("min").innerHTML = minutesString;
+	document.getElementById("sec").innerHTML = secondsString;
+
+	if(timeRemaining == 0 || stopTimer) {
+		endTest();
+	}
+	else {
+		requestAnimationFrame(timerLoop);
+	}
+}
 function startTest() {
-	
+	document.getElementById("timer").style.display = "inline-block";
+	currentMiniTestStartTime = new Date().getTime();
+	requestAnimationFrame(timerLoop);
+	sectionInProgress = true;
 }
 function loadTest(testNum) {
 	document.getElementById("testExplanationCont").style.display = "none";
@@ -582,6 +610,7 @@ function loadTest(testNum) {
 	}
 	document.getElementById(miniTestList[currentPart-1][testNum]).style.display = "inline-block";
 	document.getElementById(miniTestList[currentPart-1][testNum] + "StartButton").addEventListener("click", startTest);
+	currentLoadedMiniTest = miniTestList[currentPart-1][testNum];
 }
 function loadTestInstructions() {
 	document.getElementById("testSelectionCont").style.display = "none";
@@ -589,7 +618,8 @@ function loadTestInstructions() {
 	document.getElementById("testExplanationCont").style.display = "inline-block";
 	document.getElementById("part" + String(currentPart) + "Explanation").style.display = "inline-block";
 	document.getElementById("startWholeTest" + currentPart).addEventListener("click", function() {
-		loadTest(0);
+		currentTest = 0;
+		loadTest(currentTest);
 	});
 }
 function setup() {
