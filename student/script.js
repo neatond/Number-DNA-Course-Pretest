@@ -570,7 +570,13 @@ function clickedACheckbox(e) {
 	document.getElementById("testSelectionCheckbox" + currentPart).checked = true;
 }
 function endTest() {
-
+	++currentTest;
+	if(currentTest >= miniTestList[currentPart-1].length) {
+		sendAnswers();
+	}
+	else {
+		loadTest(currentTest);
+	}
 }
 function timerLoop() {
 	var currentTime = new Date().getTime();
