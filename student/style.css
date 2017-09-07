@@ -4,6 +4,9 @@ div {
 table {
 	display: inline-block;
 }
+td {
+	text-align: center;
+}
 textarea {
 	height: 18px;
 	width: 40px;
@@ -34,7 +37,7 @@ div.partExplanation {
 	display: none;
 }
 div.testArea {
-	/*display: none;*/
+	display: none;
 }
 span.questionHiddenUntilStart {
 	/*display: none;*/
