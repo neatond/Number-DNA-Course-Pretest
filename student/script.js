@@ -577,8 +577,8 @@ function loadTest(testNum) {
 
 	document.getElementById("testCont").style.display = "inline-block";
 	document.getElementById("test" + String(currentPart)).style.display = "inline-block";
-	document.getElementById(miniTestList[currentPart-1][0]).style.display = "inline-block";
-	document.getElementById(miniTestList[currentPart-1][0] + "StartButton").addEventListener("click", startTest);
+	document.getElementById(miniTestList[currentPart-1][testNum]).style.display = "inline-block";
+	document.getElementById(miniTestList[currentPart-1][testNum] + "StartButton").addEventListener("click", startTest);
 }
 function loadTestInstructions() {
 	document.getElementById("testSelectionCont").style.display = "none";
