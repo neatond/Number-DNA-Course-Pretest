@@ -534,7 +534,7 @@ var currentLoadedMiniTest = ""; //multiplyWholeNumbers, divideWholeNumbers, divi
                                 //exponents, toScientificNotation, fromScientificNotation, decimals, percents, percentProblems
 var miniTestList = [
 	["multiplyWholeNumbers", "divideWholeNumbers", "divisibility", "factorWholeNumbers", "primeFactorization", "leastCommonMultiple", "greatestCommonFactor"],
-	["addSubtractInegers", "multiplyDivideIntegers", "theNumberGame", "orderOfOperations", "equivalentFractions", "reducingFractions", "improperAndMixedFractions"],
+	["addSubtractIntegers", "multiplyDivideIntegers", "theNumberGame", "orderOfOperations", "equivalentFractions", "reducingFractions", "improperAndMixedFractions"],
 	["solveEquations", "addSubtractFractions", "multiplyDivideFractions"],
 	["exponents", "toScientificNotation", "fromScientificNotation", "decimals", "percents", "percentProblems"]
 ];
@@ -577,6 +577,9 @@ function loadTest(testNum) {
 
 	document.getElementById("testCont").style.display = "inline-block";
 	document.getElementById("test" + String(currentPart)).style.display = "inline-block";
+	for(var i=0; i<miniTestList[currentPart-1].length; ++i) {
+		document.getElementById(miniTestList[currentPart-1][i]).style.display = "none";
+	}
 	document.getElementById(miniTestList[currentPart-1][testNum]).style.display = "inline-block";
 	document.getElementById(miniTestList[currentPart-1][testNum] + "StartButton").addEventListener("click", startTest);
 }
