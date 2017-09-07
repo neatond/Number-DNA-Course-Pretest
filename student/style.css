@@ -28,6 +28,9 @@ div#testExplanationCont {
 div#testCont {
 	display: none;
 }
+div#timer {
+	display: none;
+}
 
 div.testSelectionAreaOption {
 	text-align: center;
