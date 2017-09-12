@@ -645,6 +645,7 @@ function startTest() {
 	document.getElementById(miniTestList[currentPart-1][currentTest] + "HideUntilStart").style.display = "inline-block";
 	document.getElementById(miniTestList[currentPart-1][currentTest] + "SubmitButton").addEventListener("click", submitAnswer);
 	document.getElementById(miniTestList[currentPart-1][currentTest] + "SkipButton").addEventListener("click", skipQuestion);
+	document.getElementById(miniTestList[currentPart-1][currentTest] + "StartButton").style.display = "none";
 	loadNextQuestion();
 }
 function loadTest(testNum) {
