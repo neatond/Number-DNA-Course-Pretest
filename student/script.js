@@ -606,6 +606,9 @@ function timerLoop() {
 }
 function loadNextQuestion() {
 	++currentQuestion;
+	for(int i=0; i<questions[miniTestList[currentPart-1][currentTest]][currentQuestion-1].length; ++i) {
+		console.log(".");
+	}
 }
 function submitAnswer() {
 	//
@@ -616,6 +619,7 @@ function skipQuestion() {
 	loadNextQuestion();
 }
 function startTest() {
+	currentQuestion = 0;
 	document.getElementById("timer").style.display = "inline-block";
 	currentMiniTestStartTime = new Date().getTime();
 	requestAnimationFrame(timerLoop);
