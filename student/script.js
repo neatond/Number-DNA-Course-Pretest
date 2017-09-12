@@ -610,6 +610,7 @@ function loadNextQuestion() {
 		console.log(currentTestName + "Question" + String(i+1));
 		document.getElementById(currentTestName + "Question" + String(i+1)).innerHTML = currentVal;
 	}
+	document.getElementById(currentTestName + "Answer1").focus();
 }
 function submitAnswer() {
 	//
