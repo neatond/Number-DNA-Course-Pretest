@@ -569,6 +569,7 @@ function clickedACheckbox(e) {
 }
 function sendAnswers() {
 	document.getElementById("testCont").style.display = "none";
+	document.getElementById("thanks").style.display = "inline-block";
 }
 function endTest() {
 	++currentTest;

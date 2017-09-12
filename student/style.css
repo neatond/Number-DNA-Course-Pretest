@@ -31,6 +31,9 @@ div#testCont {
 div#timer {
 	display: none;
 }
+div#thanks {
+	display: none;
+}
 
 div.testSelectionAreaOption {
 	text-align: center;
