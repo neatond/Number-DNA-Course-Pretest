@@ -490,29 +490,29 @@ var userAnswers = {
 	]
 }
 var timeLimits = { //Given in minutes
-	multiplyWholeNumbers: 0.1, //3,
-	divideWholeNumbers: 0.1, //3,
-	divisibility: 0.1, //3,
-	factorWholeNumbers: 0.1, //2,
-	primeFactorization: 0.1, //3,
-	leastCommonMultiple: 0.1, //3,
-	greatestCommonFactor: 0.1, //3,
-	addSubtractIntegers: 0.1, //3,
-	multiplyDivideIntegers: 0.1, //3,
-	theNumberGame: 0.1, //3,
-	orderOfOperations: 0.1, //3,
-	equivalentFractions: 0.1, //3,
-	reducingFractions: 0.1, //3,
-	improperAndMixedFractions: 0.1, //2,
-	solveEquations: 0.1, //8,
-	addSubtractFractions: 0.1, //8,
-	multiplyDivideFractions: 0.1, //8,
-	exponents: 0.1, //3,
-	toScientificNotation: 0.1, //5,
-	fromScientificNotation: 0.1, //5,
-	decimals: 0.1, //5,
-	percents: 0.1, //4,
-	percentProblems: 0.1 //4
+	multiplyWholeNumbers: 0.25, //3,
+	divideWholeNumbers: 0.25, //3,
+	divisibility: 0.25, //3,
+	factorWholeNumbers: 0.25, //2,
+	primeFactorization: 0.25, //3,
+	leastCommonMultiple: 0.25, //3,
+	greatestCommonFactor: 0.25, //3,
+	addSubtractIntegers: 0.25, //3,
+	multiplyDivideIntegers: 0.25, //3,
+	theNumberGame: 0.25, //3,
+	orderOfOperations: 0.25, //3,
+	equivalentFractions: 0.25, //3,
+	reducingFractions: 0.25, //3,
+	improperAndMixedFractions: 0.25, //2,
+	solveEquations: 0.25, //8,
+	addSubtractFractions: 0.25, //8,
+	multiplyDivideFractions: 0.25, //8,
+	exponents: 0.25, //3,
+	toScientificNotation: 0.25, //5,
+	fromScientificNotation: 0.25, //5,
+	decimals: 0.25, //5,
+	percents: 0.25, //4,
+	percentProblems: 0.25 //4
 }
 
 //////////////////////////////////////////////////
@@ -655,6 +655,7 @@ function loadTest(testNum) {
 	document.getElementById("testCont").style.display = "inline-block";
 	document.getElementById("test" + String(currentPart)).style.display = "inline-block";
 	for(var i=0; i<miniTestList[currentPart-1].length; ++i) {
+		console.log(miniTestList[currentPart-1][i]);
 		document.getElementById(miniTestList[currentPart-1][i]).style.display = "none";
 	}
 	document.getElementById(miniTestList[currentPart-1][testNum]).style.display = "inline-block";
