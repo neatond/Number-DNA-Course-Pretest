@@ -308,7 +308,7 @@ var correctAnswers = {
 		[75], [1],
 		[24], [17]
 	],
-	addSubtractInegers: [
+	addSubtractIntegers: [
 		[-4],  [-4],   [-1],
 		[0],   [-2],   [-2],
 		[8],   [2],    [5],
@@ -443,7 +443,7 @@ var userAnswers = {
 	greatestCommonFactor: [
 		//
 	],
-	addSubtractInegers: [
+	addSubtractIntegers: [
 		//
 	],
 	multiplyDivideIntegers: [
@@ -500,7 +500,7 @@ var timeLimits = { //Given in minutes
 	primeFactorization: 3,
 	leastCommonMultiple: 3,
 	greatestCommonFactor: 3,
-	addSubtractInegers: 3,
+	addSubtractIntegers: 3,
 	multiplyDivideIntegers: 3,
 	theNumberGame: 3,
 	orderOfOperations: 3,
