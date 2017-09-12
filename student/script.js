@@ -613,11 +613,19 @@ function loadNextQuestion() {
 }
 function submitAnswer() {
 	//
+	clearAnswers();
 	loadNextQuestion();
 }
 function skipQuestion() {
 	//
+	clearAnswers();
 	loadNextQuestion();
+}
+function clearAnswers() {
+	var currentTestName = miniTestList[currentPart-1][currentTest];
+	for(var i=0; i<correctAnswers[currentTestName][currentQuestion-1].length; ++i) {
+		document.getElementById(currentTestName + "Answer" + String(i+1)).value = "";
+	}
 }
 function startTest() {
 	currentQuestion = 0;
