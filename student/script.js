@@ -613,12 +613,21 @@ function loadNextQuestion() {
 	document.getElementById(currentTestName + "Answer1").focus();
 }
 function submitAnswer() {
-	//
+	var currentTestName = miniTestList[currentPart-1][currentTest];
+	userAnswers[currentTestName].push([]);
+	for(var i=0; i<correctAnswers[currentTestName][currentQuestion-1].length; ++i) {
+		var ans = document.getElementById(currentTestName + "Answer" + String(i-1));
+		userAnswers[currentTestName][currentQuestion-1].push(ans);
+	}
 	clearAnswers();
 	loadNextQuestion();
 }
 function skipQuestion() {
-	//
+	var currentTestName = miniTestList[currentPart-1][currentTest];
+	userAnswers[currentTestName].push([]);
+	for(var i=0; i<correctAnswers[currentTestName][currentQuestion-1].length; ++i) {
+		userAnswers[currentTestName][currentQuestion-1].push(null);
+	}
 	clearAnswers();
 	loadNextQuestion();
 }
