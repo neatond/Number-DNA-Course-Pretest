@@ -577,7 +577,18 @@ function checkAnswers() {
 		userScores.push(0);
 		var currentTestName = miniTestList[currentPart-1][i];
 		for(var j=0; j<correctAnswers[currentTestName].length; ++j) {
-			if(userAnswers[currentTestName][j] == correctAnswers[currentTestName][j]) {
+			var correct = true;
+			for(var k=0; k<correctAnswers[currentTestName][j].length; ++k) {
+				if(userAnswers[currentTestName][j] == null) {
+					correct = false;
+					break;
+				}
+				if(userAnswers[currentTestName][j][k] != correctAnswers[currentTestName][j][k]) {
+					correct = false;
+					break;
+				}
+			}
+			if(correct) {
 				++userScores[i];
 			}
 		}
@@ -672,7 +683,6 @@ function loadTest(testNum) {
 	document.getElementById("testCont").style.display = "inline-block";
 	document.getElementById("test" + String(currentPart)).style.display = "inline-block";
 	for(var i=0; i<miniTestList[currentPart-1].length; ++i) {
-		console.log(miniTestList[currentPart-1][i]);
 		document.getElementById(miniTestList[currentPart-1][i]).style.display = "none";
 	}
 	document.getElementById(miniTestList[currentPart-1][testNum]).style.display = "inline-block";
