@@ -575,10 +575,19 @@ function sendAnswers() {
 function checkAnswers() {
 	for(var i=0; i<miniTestList[currentPart-1].length; ++i) {
 		userScores.push(0);
-		//
+		var currentTestName = miniTestList[currentPart-1][i];
+		for(var j=0; j<correctAnswers[currentTestName].length; ++j) {
+			if(userAnswers[currentTestName][j] == correctAnswers[currentTestName][j]) {
+				++userScores[i];
+			}
+		}
 	}
 }
 function endTest() {
+	var currentTestName = miniTestList[currentPart-1][currentTest];
+	for(var i=userAnswers[currentTestName].length; i<correctAnswers[currentTestName].length; ++i) {
+		userAnswers[currentTestName].push(null);
+	}
 	++currentTest;
 	document.getElementById("timer").style.display = "none";
 	if(currentTest >= miniTestList[currentPart-1].length) {
