@@ -606,8 +606,10 @@ function timerLoop() {
 }
 function loadNextQuestion() {
 	++currentQuestion;
-	for(int i=0; i<questions[miniTestList[currentPart-1][currentTest]][currentQuestion-1].length; ++i) {
-		console.log(".");
+	var currentTestName = miniTestList[currentPart-1][currentTest];
+	for(var i=0; i<questions[currentTestName][currentQuestion-1].length; ++i) {
+		var currentVal = questions[currentTestName][currentQuestion-1][i];
+		document.getElementById(currentTestName + "Question" + String(i+1)).innerHTML = currentVal;
 	}
 }
 function submitAnswer() {
