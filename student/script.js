@@ -569,6 +569,9 @@ function clickedACheckbox(e) {
 	currentPart = partNum;
 	document.getElementById("testSelectionCheckbox" + currentPart).checked = true;
 }
+function sendAnswers() {
+	document.getElementById("testCont").style.display = "none";
+}
 function endTest() {
 	++currentTest;
 	document.getElementById("timer").style.display = "none";
@@ -605,6 +608,7 @@ function startTest() {
 	currentMiniTestStartTime = new Date().getTime();
 	requestAnimationFrame(timerLoop);
 	sectionInProgress = true;
+	document.getElementById(miniTestList[currentTest][currentPart-1] + "HideUntilStart").style.display = "inline-block";
 }
 function loadTest(testNum) {
 	document.getElementById("testExplanationCont").style.display = "none";
