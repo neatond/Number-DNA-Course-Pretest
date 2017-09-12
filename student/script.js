@@ -417,7 +417,7 @@ var correctAnswers = {
 	percentProblems: [
 		//
 	]
-}
+};
 var userAnswers = {
 	multiplyWholeNumbers: [
 		//
@@ -488,7 +488,7 @@ var userAnswers = {
 	percentProblems: [
 		//
 	]
-}
+};
 var timeLimits = { //Given in minutes
 	multiplyWholeNumbers: 0.25, //3,
 	divideWholeNumbers: 0.25, //3,
@@ -513,7 +513,7 @@ var timeLimits = { //Given in minutes
 	decimals: 0.25, //5,
 	percents: 0.25, //4,
 	percentProblems: 0.25 //4
-}
+};
 
 //////////////////////////////////////////////////
 /// GLOBAL VARIABLES
@@ -527,6 +527,7 @@ var currentPart = 0;
 var currentTest = 0;
 var currentQuestion = 0;
 var currentMiniTestIndex;
+var userScores = [];
 var currentLoadedMiniTest = ""; //multiplyWholeNumbers, divideWholeNumbers, divisibility, factorWholeNumbers, primeFactorization, leastCommonMultiple,
                                 //greatestCommonFactor, addSubtractInegers, multiplyDivideIntegers, theNumberGame, orderOfOperations, equivalentFractions,
                                 //reducingFractions, improperAndMixedFractions, solveEquations, addSubtractFractions, multiplyDivideFractions,
@@ -571,10 +572,17 @@ function sendAnswers() {
 	document.getElementById("testCont").style.display = "none";
 	document.getElementById("thanks").style.display = "inline-block";
 }
+function checkAnswers() {
+	for(var i=0; i<miniTestList[currentPart-1].length; ++i) {
+		userScores.push(0);
+		//
+	}
+}
 function endTest() {
 	++currentTest;
 	document.getElementById("timer").style.display = "none";
 	if(currentTest >= miniTestList[currentPart-1].length) {
+		checkAnswers();
 		sendAnswers();
 	}
 	else {
