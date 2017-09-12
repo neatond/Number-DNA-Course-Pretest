@@ -528,6 +528,7 @@ var stopTimer = false; //Force the timer to stop.
 var username;
 var currentPart = 0;
 var currentTest = 0;
+var currentQuestion = 0;
 var currentMiniTestIndex;
 var currentLoadedMiniTest = ""; //multiplyWholeNumbers, divideWholeNumbers, divisibility, factorWholeNumbers, primeFactorization, leastCommonMultiple,
                                 //greatestCommonFactor, addSubtractInegers, multiplyDivideIntegers, theNumberGame, orderOfOperations, equivalentFractions,
@@ -603,12 +604,26 @@ function timerLoop() {
 		requestAnimationFrame(timerLoop);
 	}
 }
+function loadNextQuestion() {
+	++currentQuestion;
+}
+function submitAnswer() {
+	//
+	loadNextQuestion();
+}
+function skipQuestion() {
+	//
+	loadNextQuestion();
+}
 function startTest() {
 	document.getElementById("timer").style.display = "inline-block";
 	currentMiniTestStartTime = new Date().getTime();
 	requestAnimationFrame(timerLoop);
 	sectionInProgress = true;
-	document.getElementById(miniTestList[currentTest][currentPart-1] + "HideUntilStart").style.display = "inline-block";
+	document.getElementById(miniTestList[currentPart-1][currentTest] + "HideUntilStart").style.display = "inline-block";
+	document.getElementById(miniTestList[currentPart-1][currentTest] + "SubmitButton").addEventListener("click", submitAnswer);
+	document.getElementById(miniTestList[currentPart-1][currentTest] + "SkipButton").addEventListener("click", skipQuestion);
+	loadNextQuestion();
 }
 function loadTest(testNum) {
 	document.getElementById("testExplanationCont").style.display = "none";
