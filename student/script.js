@@ -607,7 +607,6 @@ function loadNextQuestion() {
 	var currentTestName = miniTestList[currentPart-1][currentTest];
 	for(var i=0; i<questions[currentTestName][currentQuestion-1].length; ++i) {
 		var currentVal = questions[currentTestName][currentQuestion-1][i];
-		console.log(currentTestName + "Question" + String(i+1));
 		document.getElementById(currentTestName + "Question" + String(i+1)).innerHTML = currentVal;
 	}
 	document.getElementById(currentTestName + "Answer1").focus();
@@ -616,7 +615,7 @@ function submitAnswer() {
 	var currentTestName = miniTestList[currentPart-1][currentTest];
 	userAnswers[currentTestName].push([]);
 	for(var i=0; i<correctAnswers[currentTestName][currentQuestion-1].length; ++i) {
-		var ans = document.getElementById(currentTestName + "Answer" + String(i-1));
+		var ans = document.getElementById(currentTestName + "Answer" + String(i+1)).value;
 		userAnswers[currentTestName][currentQuestion-1].push(ans);
 	}
 	clearAnswers();
