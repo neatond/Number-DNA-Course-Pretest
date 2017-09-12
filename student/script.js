@@ -149,16 +149,14 @@ var questions = {
 		//
 	],
 	equivalentFractions: [
-		[1, 2],
-		[2, 7],
-		[4, 11],
-		[1, 3],
-		[5, 6],
-		[4, 7],
-		[3, 8],
-		[1, 3],
-		[11, 7],
-		[2, 9]
+		[1, 2, 4, 8, 12],
+		[2, 7, 14, 28, 35],
+		[4, 11, 22, 55, 88],
+		[1, 3, 9, 21, 33],
+		[5, 6, 12, 18, 60],
+		[4, 7, 14, 28, 56],
+		[3, 8, 16, 24, 32],
+		[1, 3, 30, 45, 60]
 	],
 	reducingFractions: [
 		[2, 4],     [3, 9],     [8, 10],
@@ -609,6 +607,7 @@ function loadNextQuestion() {
 	var currentTestName = miniTestList[currentPart-1][currentTest];
 	for(var i=0; i<questions[currentTestName][currentQuestion-1].length; ++i) {
 		var currentVal = questions[currentTestName][currentQuestion-1][i];
+		console.log(currentTestName + "Question" + String(i+1));
 		document.getElementById(currentTestName + "Question" + String(i+1)).innerHTML = currentVal;
 	}
 }
