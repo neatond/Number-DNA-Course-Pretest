@@ -514,6 +514,31 @@ var timeLimits = { //Given in minutes
 	percents: 0.25, //4,
 	percentProblems: 0.25 //4
 };
+var requiresSpecificCheck = {
+	multiplyWholeNumbers: false,
+	divideWholeNumbers: false,
+	divisibility: true,
+	factorWholeNumbers: true,
+	primeFactorization: true,
+	leastCommonMultiple: false,
+	greatestCommonFactor: false,
+	addSubtractIntegers: false,
+	multiplyDivideIntegers: false,
+	theNumberGame: false,
+	orderOfOperations: false,
+	equivalentFractions: false,
+	reducingFractions: false,
+	improperAndMixedFractions: true,
+	solveEquations: false,
+	addSubtractFractions: false,
+	multiplyDivideFractions: false,
+	exponents: false,
+	toScientificNotation: false,
+	fromScientificNotation: false,
+	decimals: false,
+	percents: false,
+	percentProblems: false
+}
 
 //////////////////////////////////////////////////
 /// GLOBAL VARIABLES
@@ -578,14 +603,93 @@ function checkAnswers() {
 		var currentTestName = miniTestList[currentPart-1][i];
 		for(var j=0; j<correctAnswers[currentTestName].length; ++j) {
 			var correct = true;
-			for(var k=0; k<correctAnswers[currentTestName][j].length; ++k) {
-				if(userAnswers[currentTestName][j] == null) {
-					correct = false;
-					break;
+			if(requiresSpecificCheck[currentTestName]) {
+				switch(currentTestName) {
+					case "divisibility":
+						var responseNums = userAnswers[currentTestName][j].split(",");
+						var correctNums = correctAnswers[currentTestName][j].split(",");
+						for(var k=0; k<responseNums.length; ++k) {
+							if(!correctNums.includes(responseNums[k])) {
+								correct = false;
+								break;
+							}
+						}
+						if(/*still*/ correct) {
+							for(var k=0; k<correctNums.length; ++k) {
+								if(!responseNums.includes(correctNums[k])) {
+									correct = false;
+									break;
+								}
+							}
+						}
+						break;
+					case "factorWholeNumbers":
+						var responseNums = userAnswers[currentTestName][j].split(",");
+						var correctNums = correctAnswers[currentTestName][j].split(",");
+						for(var k=0; k<responseNums.length; ++k) {
+							if(!correctNums.includes(responseNums[k])) {
+								correct = false;
+								break;
+							}
+						}
+						if(/*still*/ correct) {
+							for(var k=0; k<correctNums.length; ++k) {
+								if(!responseNums.includes(correctNums[k])) {
+									correct = false;
+									break;
+								}
+							}
+						}
+						break;
+					case "primeFactorization":
+						var responseNums = userAnswers[currentTestName][j].slice(0);
+						var correctNums = correctAnswers[currentTestName][j].slice(0);
+						while(responseNums.length > 0 && correctNums.length > 0) {
+							if(responseNums.length != correctNums.length) {
+								correct = false;
+								break;
+							}
+							var currentNum = responseNums.pop();
+							var index = correctNums.indexOf(currentNum);
+							if(index == -1) {
+								correct = false;
+								break;
+							}
+							else {
+								correctNums.splice(index, 1);
+							}
+						}
+						break;
+					case "improperAndMixedFractions":
+						if(userAnswers[currentTestName][j][1] != correctAnswers[currentTestName][j][1]) {
+							correct = false;
+						}
+						else if(userAnswers[currentTestName][j][2] != correctAnswers[currentTestName][j][2]) {
+							correct = false;
+						}
+						else if(correctAnswers[currentTestName][j][0] != 0) {
+							if(userAnswers[currentTestName][j][0] != correctAnswers[currentTestName][j][0]) {
+								correct = false;
+							}
+						}
+						else {
+							if(!(userAnswers[currentTestName][j][0] == "0" || userAnswers[currentTestName][j][0] == " " || userAnswers[currentTestName][j][0] == "" || userAnswers[currentTestName][j][0] == null)) {
+								correct = false;
+							}
+						}
+						break;
 				}
-				if(userAnswers[currentTestName][j][k] != correctAnswers[currentTestName][j][k]) {
-					correct = false;
-					break;
+			}
+			else {
+				for(var k=0; k<correctAnswers[currentTestName][j].length; ++k) {
+					if(userAnswers[currentTestName][j] == null) {
+						correct = false;
+						break;
+					}
+					if(userAnswers[currentTestName][j][k] != correctAnswers[currentTestName][j][k]) {
+						correct = false;
+						break;
+					}
 				}
 			}
 			if(correct) {
