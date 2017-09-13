@@ -490,31 +490,31 @@ var userAnswers = {
 	]
 };
 var timeLimits = { //Given in minutes
-	multiplyWholeNumbers: /*30, */0.25, //3,
-	divideWholeNumbers: /*30, */0.25, //3,
-	divisibility: /*30, */0.25, //3,
-	factorWholeNumbers: /*30, */0.25, //2,
-	primeFactorization: /*30, */0.25, //3,
-	leastCommonMultiple: /*30, */0.25, //3,
-	greatestCommonFactor: /*30, */0.25, //3,
-	addSubtractIntegers: /*30, */0.25, //3,
-	multiplyDivideIntegers: /*30, */0.25, //3,
-	theNumberGame: /*30, */0.25, //3,
+	multiplyWholeNumbers: 30, //0.25, //3,
+	divideWholeNumbers: 30, //0.25, //3,
+	divisibility: 30, //0.25, //3,
+	factorWholeNumbers: 30, //0.25, //2,
+	primeFactorization: 30, //0.25, //3,
+	leastCommonMultiple: 30, //0.25, //3,
+	greatestCommonFactor: 30, //0.25, //3,
+	addSubtractIntegers: 30, //0.25, //3,
+	multiplyDivideIntegers: 30, //0.25, //3,
+	theNumberGame: 30, //0.25, //3,
 
 	orderOfOperations: /*0*/ 0.1, //0.25, //3,
 
-	equivalentFractions: /*30, */0.25, //3,
-	reducingFractions: /*30, */0.25, //3,
-	improperAndMixedFractions: /*30, */0.25, //2,
-	solveEquations: /*30, */0.25, //8,
-	addSubtractFractions: /*30, */0.25, //8,
-	multiplyDivideFractions: /*30, */0.25, //8,
-	exponents: /*30, */0.25, //3,
-	toScientificNotation: /*30, */0.25, //5,
-	fromScientificNotation: /*30, */0.25, //5,
-	decimals: /*30, */0.25, //5,
-	percents: /*30, */0.25, //4,
-	percentProblems: /*30, */0.25 //4
+	equivalentFractions: 30, //0.25, //3,
+	reducingFractions: 30, //0.25, //3,
+	improperAndMixedFractions: 30, //0.25, //2,
+	solveEquations: 30, //0.25, //8,
+	addSubtractFractions: 30, //0.25, //8,
+	multiplyDivideFractions: 30, //0.25, //8,
+	exponents: 30, //0.25, //3,
+	toScientificNotation: 30, //0.25, //5,
+	fromScientificNotation: 30, //0.25, //5,
+	decimals: 30, //0.25, //5,
+	percents: 30, //0.25, //4,
+	percentProblems: 30, //0.25 //4
 };
 var requiresSpecificCheck = {
 	multiplyWholeNumbers: false,
@@ -602,15 +602,11 @@ function sendAnswers() {
 	document.getElementById("testCont").style.display = "none";
 	document.getElementById("thanks").style.display = "inline-block";
 
-	var submissionURL = "https://docs.google.com/a/umich.edu/forms/d/e/\
-	1FAIpQLSfvbHVlkg0_x71NgBrFM8vqWeU4MOzTYFqoUXHUptmqAkqq9A/\
-	formResponse?usp=pp_url&entry.409708748=" + firstName + "&entry\
-	.2035091652=" + lastName + "&entry.563116119=" + school + "&\
-	entry.1400737813=" + userScores[0] + "&entry.2061434955=" + userScores[1] + "&entry\
-	.1426620466=" + userScores[2] + "&entry.370173566=" + userScores[3] + "&entry\
-	.1635064555=" + userScores[4] + "&entry.401578479=" + userScores[5] + "&entry.15559398=" + userScores[6];
+	var submissionURL = "https://docs.google.com/a/umich.edu/forms/d/e/1FAIpQLSfvbHVlkg0_x71NgBrFM8vqWeU4MOzTYFqoUXHUptmqAkqq9A/formResponse?usp=pp_url&entry.409708748=" + firstName + "&entry.2035091652=" + lastName + "&entry.563116119=" + school + "&entry.1400737813=" + userScores[0] + "&entry.2061434955=" + userScores[1] + "&entry.1426620466=" + userScores[2] + "&entry.370173566=" + userScores[3] + "&entry.1635064555=" + userScores[4] + "&entry.401578479=" + userScores[5] + "&entry.15559398=" + userScores[6];
+	window.open(submissionURL, "_blank");
 
 	console.log(submissionURL);
+	document.body.innerHTML += "<br><br>If the submission received page didn't open, please click this link to submit:<br><a href=" + submissionURL + ">Submit</a>";
 }
 function checkAnswers() {
 	for(var i=0; i<miniTestList[currentPart-1].length; ++i) {
