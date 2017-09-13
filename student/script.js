@@ -744,6 +744,7 @@ function timerLoop() {
 	document.getElementById("sec").innerHTML = secondsString;
 
 	if(timeRemaining == 0 || stopTimer) {
+		stopTimer = false;
 		endTest();
 	}
 	else {
@@ -752,12 +753,17 @@ function timerLoop() {
 }
 function loadNextQuestion() {
 	++currentQuestion;
-	var currentTestName = miniTestList[currentPart-1][currentTest];
-	for(var i=0; i<questions[currentTestName][currentQuestion-1].length; ++i) {
-		var currentVal = questions[currentTestName][currentQuestion-1][i];
-		document.getElementById(currentTestName + "Question" + String(i+1)).innerHTML = currentVal;
+	if(currentQuestion >= miniTestList[currentPart-1][currentTest].length) {
+		stopTimer = true;
 	}
-	document.getElementById(currentTestName + "Answer1").focus();
+	else {
+		var currentTestName = miniTestList[currentPart-1][currentTest];
+		for(var i=0; i<questions[currentTestName][currentQuestion-1].length; ++i) {
+			var currentVal = questions[currentTestName][currentQuestion-1][i];
+			document.getElementById(currentTestName + "Question" + String(i+1)).innerHTML = currentVal;
+		}
+		document.getElementById(currentTestName + "Answer1").focus();
+	}
 }
 function submitAnswer() {
 	var currentTestName = miniTestList[currentPart-1][currentTest];
