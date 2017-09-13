@@ -547,7 +547,7 @@ var requiresSpecificCheck = {
 var sectionInProgress = false; //Whether or not a mini test is currently being taken.
 var currentMiniTestStartTime; //The start time of the current mini test.
 var stopTimer = false; //Force the timer to stop.
-var username;
+var firstName, lastName, school;
 var currentPart = 0;
 var currentTest = 0;
 var currentQuestion = 0;
@@ -804,9 +804,17 @@ function loadTestInstructions() {
 	});
 }
 function setup() {
-	username = prompt("What is your name?");
-	while(!validUsername(username)) {
-		username = prompt("I'm sorry, but that's not a valid name. Try again!");
+	firstName = prompt("What is your first name?");
+	while(!validUsername(firstName)) {
+		firstName = prompt("I'm sorry, but that's not a valid first name. Try again!");
+	}
+	lastName = prompt("What is your last name?");
+	while(!validUsername(lastName)) {
+		lastName = prompt("I'm sorry, but that's not a valid last name. Try again!");
+	}
+	school = prompt("What is your school?");
+	while(!validUsername(school)) {
+		school = prompt("I'm sorry, but that's not a valid school name. Try again!");
 	}
 	document.getElementById("testSelectionCont").style.display = "inline-block";
 	for(var i=1; i<=4; ++i) {
