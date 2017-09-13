@@ -500,7 +500,7 @@ var timeLimits = { //Given in minutes
 	addSubtractIntegers: 30, //0.25, //3,
 	multiplyDivideIntegers: 30, //0.25, //3,
 	theNumberGame: 30, //0.25, //3,
-	orderOfOperations: 30, //0.25, //3,
+	orderOfOperations: 0.1, //0.25, //3,
 	equivalentFractions: 30, //0.25, //3,
 	reducingFractions: 30, //0.25, //3,
 	improperAndMixedFractions: 30, //0.25, //2,
