@@ -490,29 +490,31 @@ var userAnswers = {
 	]
 };
 var timeLimits = { //Given in minutes
-	multiplyWholeNumbers: 30, //0.25, //3,
-	divideWholeNumbers: 30, //0.25, //3,
-	divisibility: 30, //0.25, //3,
-	factorWholeNumbers: 30, //0.25, //2,
-	primeFactorization: 30, //0.25, //3,
-	leastCommonMultiple: 30, //0.25, //3,
-	greatestCommonFactor: 30, //0.25, //3,
-	addSubtractIntegers: 30, //0.25, //3,
-	multiplyDivideIntegers: 30, //0.25, //3,
-	theNumberGame: 30, //0.25, //3,
-	orderOfOperations: 0.1, //0.25, //3,
-	equivalentFractions: 30, //0.25, //3,
-	reducingFractions: 30, //0.25, //3,
-	improperAndMixedFractions: 30, //0.25, //2,
-	solveEquations: 30, //0.25, //8,
-	addSubtractFractions: 30, //0.25, //8,
-	multiplyDivideFractions: 30, //0.25, //8,
-	exponents: 30, //0.25, //3,
-	toScientificNotation: 30, //0.25, //5,
-	fromScientificNotation: 30, //0.25, //5,
-	decimals: 30, //0.25, //5,
-	percents: 30, //0.25, //4,
-	percentProblems: 30, //0.25 //4
+	multiplyWholeNumbers: /*30, */0.25, //3,
+	divideWholeNumbers: /*30, */0.25, //3,
+	divisibility: /*30, */0.25, //3,
+	factorWholeNumbers: /*30, */0.25, //2,
+	primeFactorization: /*30, */0.25, //3,
+	leastCommonMultiple: /*30, */0.25, //3,
+	greatestCommonFactor: /*30, */0.25, //3,
+	addSubtractIntegers: /*30, */0.25, //3,
+	multiplyDivideIntegers: /*30, */0.25, //3,
+	theNumberGame: /*30, */0.25, //3,
+
+	orderOfOperations: /*0*/ 0.1, //0.25, //3,
+
+	equivalentFractions: /*30, */0.25, //3,
+	reducingFractions: /*30, */0.25, //3,
+	improperAndMixedFractions: /*30, */0.25, //2,
+	solveEquations: /*30, */0.25, //8,
+	addSubtractFractions: /*30, */0.25, //8,
+	multiplyDivideFractions: /*30, */0.25, //8,
+	exponents: /*30, */0.25, //3,
+	toScientificNotation: /*30, */0.25, //5,
+	fromScientificNotation: /*30, */0.25, //5,
+	decimals: /*30, */0.25, //5,
+	percents: /*30, */0.25, //4,
+	percentProblems: /*30, */0.25 //4
 };
 var requiresSpecificCheck = {
 	multiplyWholeNumbers: false,
@@ -594,8 +596,21 @@ function clickedACheckbox(e) {
 	document.getElementById("testSelectionCheckbox" + currentPart).checked = true;
 }
 function sendAnswers() {
+	//Prefilled form link: https://docs.google.com/a/umich.edu/forms/d/e/1FAIpQLSfvbHVlkg0_x71NgBrFM8vqWeU4MOzTYFqoUXHUptmqAkqq9A/viewform?usp=pp_url&entry.409708748=FNAME&entry.2035091652=LNAME&entry.563116119=SNAME&entry.1400737813=SCORE1&entry.2061434955=SCORE2&entry.1426620466=SCORE3&entry.370173566=SCORE4&entry.1635064555=SCORE5&entry.401578479=SCORE6&entry.15559398=SCORE7
+	//Submitted form link: https://docs.google.com/a/umich.edu/forms/d/e/1FAIpQLSfvbHVlkg0_x71NgBrFM8vqWeU4MOzTYFqoUXHUptmqAkqq9A/formResponse?usp=pp_url&entry.409708748=FNAME&entry.2035091652=LNAME&entry.563116119=SNAME&entry.1400737813=SCORE1&entry.2061434955=SCORE2&entry.1426620466=SCORE3&entry.370173566=SCORE4&entry.1635064555=SCORE5&entry.401578479=SCORE6&entry.15559398=SCORE7
+
 	document.getElementById("testCont").style.display = "none";
 	document.getElementById("thanks").style.display = "inline-block";
+
+	var submissionURL = "https://docs.google.com/a/umich.edu/forms/d/e/\
+	1FAIpQLSfvbHVlkg0_x71NgBrFM8vqWeU4MOzTYFqoUXHUptmqAkqq9A/\
+	formResponse?usp=pp_url&entry.409708748=" + firstName + "&entry\
+	.2035091652=" + lastName + "&entry.563116119=" + school + "&\
+	entry.1400737813=" + userScores[0] + "&entry.2061434955=" + userScores[1] + "&entry\
+	.1426620466=" + userScores[2] + "&entry.370173566=" + userScores[3] + "&entry\
+	.1635064555=" + userScores[4] + "&entry.401578479=" + userScores[5] + "&entry.15559398=" + userScores[6];
+
+	console.log(submissionURL);
 }
 function checkAnswers() {
 	for(var i=0; i<miniTestList[currentPart-1].length; ++i) {
@@ -604,80 +619,85 @@ function checkAnswers() {
 		for(var j=0; j<correctAnswers[currentTestName].length; ++j) {
 			var correct = true;
 			if(requiresSpecificCheck[currentTestName]) {
-				switch(currentTestName) {
-					case "divisibility":
-						var responseNums = userAnswers[currentTestName][j].split(",");
-						var correctNums = correctAnswers[currentTestName][j].split(",");
-						for(var k=0; k<responseNums.length; ++k) {
-							if(!correctNums.includes(responseNums[k])) {
-								correct = false;
-								break;
-							}
-						}
-						if(/*still*/ correct) {
-							for(var k=0; k<correctNums.length; ++k) {
-								if(!responseNums.includes(correctNums[k])) {
+				if(userAnswers[currentTestName][j] == null) {
+					correct = false;
+				}
+				else {
+					switch(currentTestName) {
+						case "divisibility":
+							var responseNums = userAnswers[currentTestName][j][0].split(",");
+							var correctNums = correctAnswers[currentTestName][j][0].split(",");
+							for(var k=0; k<responseNums.length; ++k) {
+								if(!correctNums.includes(responseNums[k])) {
 									correct = false;
 									break;
 								}
 							}
-						}
-						break;
-					case "factorWholeNumbers":
-						var responseNums = userAnswers[currentTestName][j].split(",");
-						var correctNums = correctAnswers[currentTestName][j].split(",");
-						for(var k=0; k<responseNums.length; ++k) {
-							if(!correctNums.includes(responseNums[k])) {
-								correct = false;
-								break;
+							if(/*still*/ correct) {
+								for(var k=0; k<correctNums.length; ++k) {
+									if(!responseNums.includes(correctNums[k])) {
+										correct = false;
+										break;
+									}
+								}
 							}
-						}
-						if(/*still*/ correct) {
-							for(var k=0; k<correctNums.length; ++k) {
-								if(!responseNums.includes(correctNums[k])) {
+							break;
+						case "factorWholeNumbers":
+							var responseNums = userAnswers[currentTestName][j][0].split(",");
+							var correctNums = correctAnswers[currentTestName][j][0].split(",");
+							for(var k=0; k<responseNums.length; ++k) {
+								if(!correctNums.includes(responseNums[k])) {
 									correct = false;
 									break;
 								}
 							}
-						}
-						break;
-					case "primeFactorization":
-						var responseNums = userAnswers[currentTestName][j].slice(0);
-						var correctNums = correctAnswers[currentTestName][j].slice(0);
-						while(responseNums.length > 0 && correctNums.length > 0) {
-							if(responseNums.length != correctNums.length) {
-								correct = false;
-								break;
+							if(/*still*/ correct) {
+								for(var k=0; k<correctNums.length; ++k) {
+									if(!responseNums.includes(correctNums[k])) {
+										correct = false;
+										break;
+									}
+								}
 							}
-							var currentNum = responseNums.pop();
-							var index = correctNums.indexOf(currentNum);
-							if(index == -1) {
+							break;
+						case "primeFactorization":
+							var responseNums = userAnswers[currentTestName][j][0].split(",");
+							var correctNums = correctAnswers[currentTestName][j][0].split(",");
+							while(responseNums.length > 0 && correctNums.length > 0) {
+								if(responseNums.length != correctNums.length) {
+									correct = false;
+									break;
+								}
+								var currentNum = responseNums.pop();
+								var index = correctNums.indexOf(currentNum);
+								if(index == -1) {
+									correct = false;
+									break;
+								}
+								else {
+									correctNums.splice(index, 1);
+								}
+							}
+							break;
+						case "improperAndMixedFractions":
+							if(userAnswers[currentTestName][j][1] != correctAnswers[currentTestName][j][1]) {
 								correct = false;
-								break;
+							}
+							else if(userAnswers[currentTestName][j][2] != correctAnswers[currentTestName][j][2]) {
+								correct = false;
+							}
+							else if(correctAnswers[currentTestName][j][0] != 0) {
+								if(userAnswers[currentTestName][j][0] != correctAnswers[currentTestName][j][0]) {
+									correct = false;
+								}
 							}
 							else {
-								correctNums.splice(index, 1);
+								if(!(userAnswers[currentTestName][j][0] == "0" || userAnswers[currentTestName][j][0] == " " || userAnswers[currentTestName][j][0] == "" || userAnswers[currentTestName][j][0] == null)) {
+									correct = false;
+								}
 							}
-						}
-						break;
-					case "improperAndMixedFractions":
-						if(userAnswers[currentTestName][j][1] != correctAnswers[currentTestName][j][1]) {
-							correct = false;
-						}
-						else if(userAnswers[currentTestName][j][2] != correctAnswers[currentTestName][j][2]) {
-							correct = false;
-						}
-						else if(correctAnswers[currentTestName][j][0] != 0) {
-							if(userAnswers[currentTestName][j][0] != correctAnswers[currentTestName][j][0]) {
-								correct = false;
-							}
-						}
-						else {
-							if(!(userAnswers[currentTestName][j][0] == "0" || userAnswers[currentTestName][j][0] == " " || userAnswers[currentTestName][j][0] == "" || userAnswers[currentTestName][j][0] == null)) {
-								correct = false;
-							}
-						}
-						break;
+							break;
+					}
 				}
 			}
 			else {
