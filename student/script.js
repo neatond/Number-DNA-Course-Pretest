@@ -3,7 +3,7 @@
 //////////////////////////////////////////////////
 
 var questions = {
-	multiplyWholeNumbers: [
+	multiplyWholeNumbers: [ //[a, b] makes the question a * b
 		[2, 3],   [3, 5],   [5, 4]//,
 		//[5, 10],  [3, 3],   [3, 4],
 		//[6, 3],   [7, 2],   [5, 11],
@@ -22,7 +22,7 @@ var questions = {
 		//[33, 3],  [9, 16],  [5, 41],
 		//[6, 17],  [3, 27],  [19, 4]
 	],
-	divideWholeNumbers: [
+	divideWholeNumbers: [ //[a, b] makes the question a / b
 		[6, 2],    [11, 1],   [0, 7]//,
 		//[10, 5],   [4, 2],    [12, 3],
 		//[16, 4],   [25, 5],   [49, 7],
@@ -53,7 +53,7 @@ var questions = {
 		[3555],
 		[303030]
 	],
-	factorWholeNumbers: [
+	factorWholeNumbers: [ //[a, b] makes the question "list a factors of b"
 		[3, 9],
 		[2, 19],
 		[6, 12],
@@ -77,7 +77,7 @@ var questions = {
 		[144],
 		[225]
 	],
-	leastCommonMultiple: [
+	leastCommonMultiple: [ //[a, b] makes the question LCM(a, b)
 		[4, 3],
 		[6, 8],
 		[10, 6],
@@ -89,7 +89,7 @@ var questions = {
 		[18, 12],
 		[14, 16]
 	],
-	greatestCommonFactor: [
+	greatestCommonFactor: [ //[a, b] makes the question GCF(a, b)
 		[6, 8],
 		[8, 14],
 		[20, 30],
